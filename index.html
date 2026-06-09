@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AECODE · Reto 3 Días · Guía de Sesión 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --paper-2:#f7f9ff;
+    --paper-3:#edf3ff;
+    --ink:#10172f;
+    --muted:#61708f;
+    --soft:#8d9ab8;
+    --line:#dbe4f4;
+    --line-2:#edf1f8;
+    --navy:#0c0f29;
+    --blue:#3157ff;
+    --blue-2:#4f7dff;
+    --violet:#7c7edf;
+    --green:#47cf78;
+    --mint:#95e3b1;
+    --amber:#f7b731;
+    --danger:#d94848;
+    --radius:18px;
+    --maxw:1320px;
+    --nav:270px;
+    --shadow:0 24px 80px rgba(24,39,75,.12);
+    --font:"Plus Jakarta Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:28px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4,p,span,b,small,td,th,button{overflow-wrap:anywhere}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  button{font-family:inherit}
+  #progress{position:fixed;top:0;left:0;width:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--green));z-index:1000;box-shadow:0 0 20px rgba(49,87,255,.25)}
+
+  .hero{position:relative;overflow:hidden;background:
+    linear-gradient(115deg,rgba(49,87,255,.10),transparent 36%),
+    linear-gradient(245deg,rgba(71,207,120,.10),transparent 34%),
+    linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.82),transparent 45%,rgba(255,255,255,.58));pointer-events:none}
+  .hero::after{content:"";position:absolute;left:-10%;right:-10%;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),var(--green),transparent);animation:rail-shift 7s ease-in-out infinite;opacity:.65}
+  .hero-wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:44px 32px 42px}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:46px}
+  .brand{display:flex;align-items:center;gap:14px;color:var(--navy);min-width:0}
+  .logo-img{display:block;width:min(210px,52vw);height:auto;object-fit:contain}
+  .brand-system{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .stamp{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:9px 14px;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);color:var(--muted);font-size:12px;font-weight:800;white-space:nowrap}
+  .stamp i{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 7px rgba(71,207,120,.13)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) 420px;gap:42px;align-items:end}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(49,87,255,.16);background:#fff;border-radius:999px;padding:8px 12px;color:var(--blue);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+  h1{font-size:clamp(38px,5.7vw,72px);line-height:1;letter-spacing:-.047em;margin:18px 0 18px;max-width:890px}
+  h1 span{background:linear-gradient(100deg,var(--blue),var(--violet),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+  br.mobile-break{display:none}
+  .lede{font-size:clamp(16px,2vw,21px);color:var(--muted);max-width:780px;margin:0}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .pill-link{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;background:#fff;padding:10px 13px;color:var(--ink);font-size:12px;font-weight:900;box-shadow:0 10px 26px rgba(24,39,75,.06)}
+  .pill-link:hover{border-color:rgba(49,87,255,.35);text-decoration:none}
+  .command-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px;max-width:790px}
+  .command-tile{position:relative;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.84);padding:14px;box-shadow:0 14px 36px rgba(24,39,75,.07);overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+  .command-tile::after{content:"";position:absolute;inset:auto 12px 0;height:2px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--green));transform:scaleX(.22);transform-origin:left;transition:transform .35s ease}
+  .command-tile:hover{transform:translateY(-3px);border-color:rgba(49,87,255,.35);box-shadow:0 24px 70px rgba(24,39,75,.13)}
+  .command-tile:hover::after{transform:scaleX(1)}
+  .command-tile b{display:block;font-size:13px;margin-bottom:3px}
+  .command-tile span{display:block;color:var(--muted);font-size:12px;font-weight:700}
+  .meta-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:34px;box-shadow:0 12px 38px rgba(24,39,75,.08)}
+  .meta-strip div{background:#fff;padding:17px 18px}
+  .meta-strip span{display:block;color:var(--soft);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+  .meta-strip b{display:block;font-size:14px}
+  .control-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .control-card::after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--green))}
+  .control-title{font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+  .signal{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:14px 0;border-top:1px solid var(--line-2)}
+  .signal:first-of-type{border-top:0}
+  .signal b{display:block;font-size:15px}
+  .signal small{color:var(--muted);font-weight:650}
+  .signal .tag{font-size:11px;font-weight:900;color:var(--navy);background:var(--paper-3);border-radius:999px;padding:5px 9px;white-space:nowrap}
+
+  .shell{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:var(--nav) minmax(0,1fr);gap:0;padding:0 32px}
+  .toc{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:34px 24px 34px 0;border-right:1px solid var(--line)}
+  .toc-label{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
+  .toc a{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:start;padding:8px 0;color:var(--muted);font-size:13px;font-weight:750;line-height:1.25}
+  .toc a .n{font-size:11px;color:var(--blue);font-weight:900;letter-spacing:.08em}
+  .toc a.active{color:var(--ink)}
+  .toc a.active .n{background:var(--navy);color:#fff;border-radius:8px;padding:3px 5px;text-align:center}
+  main{padding:18px 0 82px 42px;min-width:0}
+  section{padding:48px 0;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+  .section-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:18px}
+  .sec-num{flex:0 0 auto;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;display:grid;place-items:center;font-size:13px;font-weight:900;box-shadow:0 14px 32px rgba(49,87,255,.20)}
+  h2{font-size:clamp(26px,3.7vw,42px);line-height:1.05;letter-spacing:-.035em;margin:0}
+  .sub{color:var(--muted);font-size:15.5px;max-width:900px;margin:8px 0 0}
+  h3{font-size:17px;margin:28px 0 12px;letter-spacing:-.01em}
+  p{margin:0 0 14px;max-width:900px}
+
+  .grid{display:grid;gap:16px;margin:20px 0}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 12px 35px rgba(24,39,75,.06);position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--green));opacity:0;transition:opacity .25s ease}
+  .card:hover{transform:translateY(-2px);box-shadow:0 20px 54px rgba(24,39,75,.10);transition:transform .24s ease,box-shadow .24s ease}
+  .card:hover::before{opacity:1}
+  .card h4{margin:0 0 8px;font-size:15px}
+  .card p{font-size:13.5px;color:var(--muted);margin:0}
+  .kicker{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:9px}
+  .metric{font-size:30px;font-weight:900;letter-spacing:-.05em;color:var(--navy);line-height:1}
+  .metric small{font-size:12px;color:var(--muted);font-weight:800;letter-spacing:0}
+  .muted{color:var(--muted)}
+
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 22px}
+  .tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;font-size:12px;font-weight:900;color:var(--muted);cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
+  .tab:hover{border-color:rgba(49,87,255,.36);transform:translateY(-1px)}
+  .tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+
+  .process{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:10px;margin:20px 0}
+  .process-step{position:relative;background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:16px;min-height:144px;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+  .process-step:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(49,87,255,.35)}
+  .process-step .pn{width:30px;height:30px;border-radius:11px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-size:11px;font-weight:900;color:var(--blue);margin-bottom:12px}
+  .process-step h4{font-size:13.5px;margin:0 0 8px}
+  .process-step p{font-size:12.5px;color:var(--muted);margin:0}
+
+  .flowline{position:relative;margin:26px 0}
+  .flowline::before{content:"";position:absolute;left:25px;top:0;bottom:0;width:2px;background:linear-gradient(var(--blue),var(--violet),var(--green))}
+  .agenda-console{display:grid;grid-template-columns:minmax(0,1.35fr) 330px;gap:16px;align-items:start;margin:22px 0 10px}
+  .agenda-toolbar{border:1px solid var(--line);background:#fff;border-radius:22px;padding:14px;box-shadow:0 12px 35px rgba(24,39,75,.06)}
+  .agenda-toolbar b{display:block;font-size:13px;margin-bottom:10px}
+  .filterbar{display:flex;flex-wrap:wrap;gap:8px}
+  .filter-chip{border:1px solid var(--line);background:var(--paper-2);color:var(--muted);border-radius:999px;padding:8px 10px;font-size:11px;font-weight:900;cursor:pointer;transition:transform .2s ease,background .2s ease,color .2s ease,border-color .2s ease}
+  .filter-chip:hover{transform:translateY(-1px);border-color:rgba(49,87,255,.35)}
+  .filter-chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
+  .stage-board{position:sticky;top:18px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#fff,#f8fbff);box-shadow:var(--shadow);padding:18px;overflow:hidden}
+  .stage-board::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--green))}
+  .stage-board .kicker{margin-bottom:8px}
+  .stage-board h3{margin:0 0 8px;font-size:19px;line-height:1.15}
+  .stage-board p{font-size:13px;color:var(--muted);margin:0 0 10px}
+  .stage-meta{display:grid;gap:8px;margin-top:12px}
+  .stage-meta div{border:1px solid var(--line-2);border-radius:14px;background:#fff;padding:10px}
+  .stage-meta span{display:block;color:var(--soft);font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+  .stage-meta b{display:block;font-size:12.5px;margin-top:2px}
+  .block{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;position:relative;margin:16px 0}
+  .block-time{position:relative;z-index:1;width:52px;height:52px;border-radius:18px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;text-align:center;font-size:10px;font-weight:900;color:var(--blue);line-height:1.1;box-shadow:0 12px 32px rgba(24,39,75,.08)}
+  .block-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px 18px 16px;box-shadow:0 12px 40px rgba(24,39,75,.06);transition:transform .28s ease,box-shadow .28s ease}
+  .block-panel:hover{transform:translateX(4px);box-shadow:var(--shadow)}
+  .block{transition:opacity .28s ease,filter .28s ease,transform .28s ease}
+  .block[hidden]{display:none}
+  .block.active .block-time{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 18px 42px rgba(12,15,41,.22)}
+  .block.active .block-panel{border-color:rgba(49,87,255,.42);box-shadow:0 24px 80px rgba(49,87,255,.14)}
+  .block-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+  .block-title{font-size:18px;font-weight:900;letter-spacing:-.02em}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-size:11px;font-weight:900;color:var(--navy);background:var(--paper-3);border:1px solid var(--line);border-radius:999px;padding:5px 9px}
+  .chip.green{background:#eafaf0;color:#18753c;border-color:#cfeeda}
+  .chip.blue{background:#edf3ff;color:var(--blue);border-color:#dbe7ff}
+  .chip.warn{background:#fff5dc;color:#8a5b00;border-color:#ffe0a3}
+  .block-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px;margin-top:12px}
+  .mini{background:var(--paper-2);border:1px solid var(--line-2);border-radius:15px;padding:12px}
+  .mini b{display:block;font-size:12px;margin-bottom:4px}
+  .mini span{display:block;color:var(--muted);font-size:12.5px}
+
+  .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:20px;margin:20px 0;background:#fff;box-shadow:0 12px 35px rgba(24,39,75,.05)}
+  table{border-collapse:collapse;width:100%;font-size:13px;min-width:680px}
+  th{background:var(--navy);color:#fff;text-align:left;padding:12px 14px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+  td{padding:12px 14px;border-bottom:1px solid var(--line-2);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:#f9fbff}
+  .num-cell{font-weight:900;color:var(--blue);white-space:nowrap}
+
+  .callout{border:1px solid var(--line);border-radius:20px;padding:18px;background:linear-gradient(180deg,#fff,#f9fbff);margin:20px 0;box-shadow:0 12px 40px rgba(24,39,75,.06)}
+  .callout.warning{border-color:#ffe1a6;background:#fffaf0}
+  .callout.success{border-color:#cdeed8;background:#f3fff7}
+  .callout b{display:block;margin-bottom:4px}
+  .callout-row{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .callout-row > div{flex:1;min-width:240px}
+  .copy-btn{border:1px solid var(--line);border-radius:999px;background:var(--navy);color:#fff;font-size:12px;font-weight:900;padding:10px 12px;cursor:pointer;box-shadow:0 14px 30px rgba(12,15,41,.18);transition:transform .2s ease,box-shadow .2s ease}
+  .copy-btn:hover{transform:translateY(-2px);box-shadow:0 20px 50px rgba(12,15,41,.24)}
+  .checklist{display:grid;gap:9px;margin:18px 0}
+  .check{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:15px;padding:11px 12px;background:#fff}
+  .box{width:18px;height:18px;border-radius:6px;border:2px solid var(--blue);flex:0 0 auto;margin-top:2px}
+  .check span{font-size:13.5px;color:var(--muted)}
+  .check b{font-size:13.5px}
+
+  .toolbar{position:fixed;right:22px;bottom:22px;z-index:50;display:flex;flex-direction:column;gap:8px}
+  .toolbtn{width:46px;height:46px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 14px 34px rgba(24,39,75,.15);cursor:pointer;color:var(--navy);font-weight:900}
+  .toolbtn:hover{border-color:var(--blue);color:var(--blue)}
+  .toast{position:fixed;left:50%;bottom:28px;z-index:80;transform:translate(-50%,18px);opacity:0;pointer-events:none;background:var(--navy);color:#fff;border-radius:999px;padding:11px 15px;font-size:12px;font-weight:900;box-shadow:0 20px 60px rgba(12,15,41,.25);transition:opacity .24s ease,transform .24s ease}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  .reveal{opacity:0;transform:translateY(16px)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .65s ease,transform .65s ease}
+  .scan{position:relative;overflow:hidden}
+  .scan::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.75) 48%,transparent 70%);transform:translateX(-130%);animation:scan 4.8s ease-in-out infinite;pointer-events:none}
+  @keyframes scan{0%,45%{transform:translateX(-130%)}70%,100%{transform:translateX(130%)}}
+  @keyframes rail-shift{0%,100%{transform:translateX(-18%)}50%{transform:translateX(18%)}}
+  @keyframes reveal-soft{from{opacity:.35;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+  @supports (animation-timeline:view()){
+    .card,.process-step,.block-panel,.callout{animation:reveal-soft linear both;animation-timeline:view();animation-range:entry 0% cover 24%}
+  }
+
+  footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--muted);font-size:12px}
+  footer .foot{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  @media(max-width:1120px){
+    .hero-grid{grid-template-columns:1fr}
+    .control-card{max-width:720px}
+    .meta-strip{grid-template-columns:repeat(3,1fr)}
+    .process{grid-template-columns:repeat(3,1fr)}
+    .agenda-console{grid-template-columns:1fr}
+    .stage-board{position:relative;top:auto}
+    .block-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:880px){
+    .shell{grid-template-columns:1fr;padding:0 20px}
+    .toc{display:none}
+    main{padding:0}
+    .hero-wrap{padding:32px 20px 34px}
+    .topbar{align-items:flex-start;margin-bottom:34px}
+    .brand{flex-direction:column;align-items:flex-start;gap:6px}
+    .meta-strip{grid-template-columns:1fr 1fr}
+    .command-grid{grid-template-columns:1fr}
+    .g2,.g3,.g4{grid-template-columns:1fr}
+    .process{grid-template-columns:1fr}
+    .block{grid-template-columns:46px 1fr;gap:12px}
+    .block-time{width:42px;height:42px;border-radius:14px;font-size:9px}
+    .flowline::before{left:20px}
+  }
+  @media(max-width:560px){
+    h1{font-size:33px;line-height:1.08;letter-spacing:-.04em}
+    br.mobile-break{display:initial}
+    .logo-img{width:180px}
+    .hero-actions{display:grid;grid-template-columns:1fr;align-items:stretch}
+    .pill-link{justify-content:center;width:100%;text-align:center}
+    .meta-strip{grid-template-columns:1fr}
+    .stamp{display:none}
+    .block-top{align-items:flex-start}
+    .signal{grid-template-columns:1fr}
+    .signal .tag{justify-self:start}
+    .toolbar{right:14px;bottom:14px}
+    .toast{left:14px;right:14px;transform:translateY(18px);text-align:center}
+    .toast.show{transform:translateY(0)}
+    table{min-width:620px}
+  }
+  @media print{
+    #progress,.toc,.toolbar,.agenda-console,.toast{display:none}
+    .shell{display:block;padding:0 18px}
+    main{padding:0}
+    .hero{break-after:page}
+    section{break-inside:avoid}
+    .tab-panel{display:block}
+    .reveal{opacity:1;transform:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="hero-wrap">
+    <div class="topbar">
+      <div class="brand">
+        <img class="logo-img" src="assets/aecode-logo-principal-fondo-blanco.png" alt="AECODE">
+        <span class="brand-system">Process OS · Reto IA</span>
+      </div>
+      <div class="stamp"><i></i> Guía de ejecución · 10 jun 2026</div>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Reto 3 Días AECODE</div>
+        <h1>Guía de Sesión 1 <span>Fundamentos +<br class="mobile-break"> creación con IA</span></h1>
+        <p class="lede">Fundamentos de IA, herramientas y primera evidencia aplicada para profesionales AEC. Una sesión para que un público general entienda la IA, la use con criterio y salga con un entregable real.</p>
+        <div class="hero-actions">
+          <a class="pill-link" href="#sesiones">Ver sesiones</a>
+          <a class="pill-link" href="#agenda">Agenda por minutos</a>
+          <a class="pill-link" href="#logistica">Checklist operativo</a>
+        </div>
+        <div class="command-grid" aria-label="Accesos de operación">
+          <a class="command-tile" href="#agenda">
+            <b>Consola de facilitación</b>
+            <span>Filtra por responsable y activa cada bloque.</span>
+          </a>
+          <a class="command-tile" href="#slides">
+            <b>Aprendizajes clave</b>
+            <span>IA simple, prompts y razonamiento práctico.</span>
+          </a>
+          <a class="command-tile" href="#evidencia">
+            <b>Evidencia del reto</b>
+            <span>One Page, prompt usado y criterio de validación.</span>
+          </a>
+        </div>
+        <div class="meta-strip">
+          <div><span>Fecha</span><b>Miércoles 10 junio 2026</b></div>
+          <div><span>Horario</span><b>7:20 - 10:30 p.m. GMT-5</b></div>
+          <div><span>Objetivo</span><b>Aprender base y crear evidencia</b></div>
+          <div><span>Evidencia</span><b>One Page o mini pieza con IA</b></div>
+          <div><span>Equipo</span><b>Alejandro, Daniella, Emanuel, Fabrizio, Anggie, Erika</b></div>
+        </div>
+      </div>
+      <aside class="control-card scan" aria-label="Resumen de operación">
+        <div class="control-title">Sistema de sesión</div>
+        <div class="signal">
+          <div><b>Entrada simple</b><small>La audiencia llega con curiosidad, dudas y niveles mixtos.</small></div>
+          <span class="tag">Activar</span>
+        </div>
+        <div class="signal">
+          <div><b>Aprendizaje aplicable</b><small>Conceptos claros, herramientas conocidas y ejemplos AEC.</small></div>
+          <span class="tag">Entender</span>
+        </div>
+        <div class="signal">
+          <div><b>Primer resultado</b><small>Cada participante produce una evidencia breve y subible.</small></div>
+          <span class="tag">Practicar</span>
+        </div>
+        <div class="signal">
+          <div><b>Continuidad</b><small>Comunidad, certificado, Sesión 2 y avance hacia automatización.</small></div>
+          <span class="tag">Retener</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="toc" aria-label="Índice">
+    <div class="toc-label">Guía</div>
+    <a class="active" href="#vision"><span class="n">01</span><span>Enfoque del programa</span></a>
+    <a href="#sesiones"><span class="n">02</span><span>Pestañas de sesión</span></a>
+    <a href="#process"><span class="n">03</span><span>IA Process</span></a>
+    <a href="#storytelling"><span class="n">04</span><span>Storytelling del equipo</span></a>
+    <a href="#agenda"><span class="n">05</span><span>Agenda por minutos</span></a>
+    <a href="#slides"><span class="n">06</span><span>Slides y aprendizajes</span></a>
+    <a href="#evidencia"><span class="n">07</span><span>Reto y evidencia</span></a>
+    <a href="#logistica"><span class="n">08</span><span>Logística operativa</span></a>
+    <a href="#checklist"><span class="n">09</span><span>Checklist</span></a>
+    <a href="#metricas"><span class="n">10</span><span>Métricas y riesgos</span></a>
+    <a href="#criterios"><span class="n">11</span><span>Criterios de optimización</span></a>
+  </nav>
+
+  <main>
+    <section id="vision" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">01</div>
+        <div>
+          <h2>Enfoque del programa</h2>
+          <p class="sub">El reto no se vende como curso gratis. Opera como experiencia de activación, diagnóstico de adopción IA, práctica guiada, comunidad y certificación con evidencia.</p>
+        </div>
+      </div>
+      <div class="grid g4">
+        <article class="card">
+          <div class="kicker">Captación</div>
+          <h4>Entrada masiva y clara</h4>
+          <p>La promesa debe ser simple: entender IA desde cero y aplicarla al trabajo AEC con un resultado visible.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Aprendizaje</div>
+          <h4>De concepto a práctica</h4>
+          <p>Primero se baja la ansiedad técnica, luego se muestra cómo pasar de idea a prompt, resultado y criterio.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Evidencia</div>
+          <h4>Una entrega pequeña</h4>
+          <p>El valor no está en escuchar más slides, sino en producir una pieza breve que demuestre comprensión.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Comunidad</div>
+          <h4>Skool como continuidad</h4>
+          <p>La comunidad permite ranking, soporte, entregas, comentarios y puente hacia las siguientes sesiones.</p>
+        </article>
+      </div>
+      <div class="callout success">
+        <b>North Star de la experiencia</b>
+        Participantes que terminan la sesión con una evidencia subida, una ruta clara para la Sesión 2 y confianza básica para usar IA sin depender de tecnicismos.
+      </div>
+    </section>
+
+    <section id="sesiones" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">02</div>
+        <div>
+          <h2>Reto 3 Días AECODE</h2>
+          <p class="sub">Tres sesiones progresivas: entender la IA, usar asistentes con documentos y cerrar con agentes, automatización y workflows.</p>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Sesiones del reto">
+        <button class="tab active" type="button" data-tab-group="sessions" data-tab-target="tab-sesion-1">Sesión 1 · Fundamentos + creación con IA</button>
+        <button class="tab" type="button" data-tab-group="sessions" data-tab-target="tab-sesion-2">Sesión 2 · Asistentes IA + productividad</button>
+        <button class="tab" type="button" data-tab-group="sessions" data-tab-target="tab-sesion-3">Sesión 3 · Agentes + automatización</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-sesion-1" data-tab-panel-group="sessions">
+        <div class="grid g3">
+          <article class="card">
+            <div class="kicker">Miércoles 10 junio</div>
+            <h4>Fundamentos de IA aplicada al AEC</h4>
+            <p>Qué es IA generativa, qué puede crear, cómo se usa con criterio y por qué ahora importa para diseño, obra, oficina técnica y gestión.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">Resultado esperado</div>
+            <h4>One Page o mini pieza IA</h4>
+            <p>Una página, lámina o resumen visual creado con apoyo de IA y conectado a un caso AEC simple.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">Criterio</div>
+            <h4>Usar, revisar y validar</h4>
+            <p>El mensaje central: la IA acelera, pero el profesional decide, verifica y convierte la salida en evidencia útil.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-sesion-2" data-tab-panel-group="sessions">
+        <div class="grid g3">
+          <article class="card">
+            <div class="kicker">Miércoles 17 junio</div>
+            <h4>Asistentes IA con documentos</h4>
+            <p>Cómo consultar PDFs, normas, metrados, informes, planes, contratos o apuntes sin perder criterio profesional.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">Práctica</div>
+            <h4>Consulta y productividad</h4>
+            <p>El participante aprende a pedir resúmenes, comparaciones, listas de riesgos, preguntas de revisión y planes de acción.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">Evidencia</div>
+            <h4>Checklist asistido por IA</h4>
+            <p>Entrega sugerida: matriz breve de análisis o checklist de revisión generado con IA y validado por el participante.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-sesion-3" data-tab-panel-group="sessions">
+        <div class="grid g3">
+          <article class="card">
+            <div class="kicker">Miércoles 24 junio</div>
+            <h4>Agentes, automatización y workflows</h4>
+            <p>Pasar de usar una herramienta suelta a diseñar un flujo repetible: entrada, proceso, salida, revisión humana y mejora.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">Herramientas</div>
+            <h4>n8n, dashboards y conectores</h4>
+            <p>Introducción simple a automatizaciones con formularios, hojas, correos, documentos, alertas y reportes.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">Evidencia</div>
+            <h4>Mapa de workflow IA</h4>
+            <p>Entrega sugerida: flujo visual con tareas, herramientas, responsables y punto de validación humana.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">03</div>
+        <div>
+          <h2>IA Process: cómo debe sentirse la sesión</h2>
+          <p class="sub">La narrativa debe funcionar como un sistema: contexto, herramienta, práctica, evidencia y comunidad. No es una clase lineal, es un recorrido guiado hacia acción.</p>
+        </div>
+      </div>
+      <div class="process">
+        <div class="process-step"><div class="pn">01</div><h4>Activar</h4><p>Chat, ciudad, profesión, nivel de IA y primera sensación de comunidad.</p></div>
+        <div class="process-step"><div class="pn">02</div><h4>Entender</h4><p>IA en el mundo y en AEC con ejemplos simples, no teoría pesada.</p></div>
+        <div class="process-step"><div class="pn">03</div><h4>Crear</h4><p>Herramientas, prompts y una primera salida visible.</p></div>
+        <div class="process-step"><div class="pn">04</div><h4>Validar</h4><p>Revisar si la IA respondió con claridad, utilidad y criterio.</p></div>
+        <div class="process-step"><div class="pn">05</div><h4>Evidenciar</h4><p>Subir One Page o mini pieza a Skool con formato claro.</p></div>
+        <div class="process-step"><div class="pn">06</div><h4>Continuar</h4><p>Certificado, Sesión 2, ranking y siguiente reto.</p></div>
+      </div>
+      <div class="callout">
+        <b>Mensaje simple para repetir durante la sesión</b>
+        IA no es solo escribir prompts. Es aprender a pedir, comparar, revisar, decidir y convertir resultados en trabajo útil.
+      </div>
+    </section>
+
+    <section id="storytelling" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">04</div>
+        <div>
+          <h2>Storytelling del equipo</h2>
+          <p class="sub">Cada persona debe tener un rol narrativo claro. Esto evita bloques desconectados y ayuda a que la audiencia general sienta continuidad.</p>
+        </div>
+      </div>
+      <div class="grid g3">
+        <article class="card">
+          <div class="kicker">Alejandro</div>
+          <h4>La IA ya cambió el mundo; ahora toca entender qué significa para AEC.</h4>
+          <p>Abre la visión: por qué la IA dejó de ser tendencia y se volvió nueva capa de trabajo en diseño, obra, BIM, oficina técnica y empresas.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Emanuel</div>
+          <h4>Qué es IA generativa, qué puede crear y qué límites tiene.</h4>
+          <p>Traduce conceptos base para público general: modelos, texto, imagen, razonamiento, errores y validación humana.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Fabrizio</div>
+          <h4>Cómo usar herramientas y prompts para pasar de idea a resultado.</h4>
+          <p>Muestra ChatGPT, Claude y Gemini como herramientas prácticas, con una fórmula clara para pedir mejores respuestas.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Daniella</div>
+          <h4>Cómo esto se convierte en ruta, evidencia y certificado.</h4>
+          <p>Ordena reglas, tiempos, entregas, certificado y continuidad para que nadie se pierda al terminar la sesión.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Anggie</div>
+          <h4>Cómo participar, entregar y conectar con comunidad.</h4>
+          <p>Aterriza pasos de entrega, QR, Skool, mensajes, soporte y llamados claros a la acción.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Erika</div>
+          <h4>Cómo mantener energía, chat, ranking y activación en vivo.</h4>
+          <p>Sostiene participación, preguntas, screenshots, ranking, Kahoot y momentos de comunidad durante toda la sesión.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="agenda" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">05</div>
+        <div>
+          <h2>Diseño completo de la sesión por minutos</h2>
+          <p class="sub">Run of show para mañana. El inicio formal es 7:30 p.m.; la sala de espera empieza 10 minutos antes para calentar chat, revisar audio y fijar instrucciones.</p>
+        </div>
+      </div>
+
+      <div class="agenda-console">
+        <div class="agenda-toolbar">
+          <b>Filtro rápido por responsable</b>
+          <div class="filterbar" aria-label="Filtrar agenda">
+            <button class="filter-chip active" type="button" data-filter="all">Todos</button>
+            <button class="filter-chip" type="button" data-filter="alejandro">Alejandro</button>
+            <button class="filter-chip" type="button" data-filter="daniella">Daniella</button>
+            <button class="filter-chip" type="button" data-filter="emanuel">Emanuel</button>
+            <button class="filter-chip" type="button" data-filter="fabrizio">Fabrizio</button>
+            <button class="filter-chip" type="button" data-filter="anggie">Anggie</button>
+            <button class="filter-chip" type="button" data-filter="erika">Erika</button>
+            <button class="filter-chip" type="button" data-filter="cabina">Cabina</button>
+          </div>
+        </div>
+        <aside class="stage-board" id="stage-board" aria-live="polite">
+          <div class="kicker">Bloque seleccionado</div>
+          <h3>Sala de espera activa</h3>
+          <p>Usa los filtros o selecciona un bloque de la línea de tiempo para operar la sesión como consola.</p>
+          <div class="stage-meta">
+            <div><span>Horario</span><b id="stage-time">7:20 - 7:30</b></div>
+            <div><span>Responsables</span><b id="stage-owners">Cabina, Erika, Anggie</b></div>
+            <div><span>Salida esperada</span><b id="stage-output">Chat vivo, soporte listo, cabina estable.</b></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="flowline">
+        <article class="block active" tabindex="0" data-speakers="cabina erika anggie" data-title="Sala de espera activa" data-time="7:20 - 7:30" data-output="Chat vivo, soporte listo, cabina estable.">
+          <div class="block-time">7:20<br>7:30</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Sala de espera activa</div><div class="chips"><span class="chip blue">Cabina</span><span class="chip">Erika</span><span class="chip">Anggie</span></div></div>
+            <p>Música, QR, pantalla de bienvenida, instrucciones de chat y prueba de enlaces. Fijar mensaje: nombre, ciudad, profesión y herramienta IA que ya usan.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Slide clave</b><span>Bienvenida + QR + ruta de 3 días.</span></div>
+              <div class="mini"><b>Objetivo</b><span>Reducir fricción y activar participación antes de iniciar.</span></div>
+              <div class="mini"><b>Salida</b><span>Chat vivo, soporte listo, cabina estable.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="erika" data-title="Erika abre comunidad" data-time="7:30 - 7:40" data-output="Audiencia activada, chat vivo y primeras señales de perfil.">
+          <div class="block-time">7:30<br>7:40</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Erika abre comunidad</div><div class="chips"><span class="chip green">Activación</span><span class="chip">Chat</span></div></div>
+            <p>Saludo breve, energía, dinámica inicial: ciudad, profesión, nivel de IA y una palabra sobre qué esperan lograr.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Storytelling</b><span>“Hoy no vienes solo a mirar; vienes a crear tu primera evidencia con IA.”</span></div>
+              <div class="mini"><b>Señal</b><span>La audiencia debe sentir que hay comunidad y acompañamiento.</span></div>
+              <div class="mini"><b>Acción</b><span>Capturar pantallazo de chat y primeros perfiles.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="daniella" data-title="Daniella presenta propósito, reglas y certificación" data-time="7:40 - 7:50" data-output="Ruta de 3 días clara, reglas entendidas y CTA de evidencia fijado.">
+          <div class="block-time">7:40<br>7:50</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Daniella presenta propósito, reglas y certificación</div><div class="chips"><span class="chip blue">Ruta</span><span class="chip green">Certificado</span></div></div>
+            <p>Explica el Reto 3 Días, requisitos de participación, evidencia, encuesta, comunidad, certificado y continuidad hacia Sesión 2 y Sesión 3.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Slide clave</b><span>Ruta: fundamentos, asistentes, agentes.</span></div>
+              <div class="mini"><b>Criterio</b><span>Certificado por asistencia, encuesta y evidencia.</span></div>
+              <div class="mini"><b>Acción</b><span>Fijar link de comunidad y reglas de entrega.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="alejandro" data-title="Alejandro: IA en el mundo e IA en AEC" data-time="7:50 - 8:15" data-output="La audiencia entiende por qué la IA importa ahora en AEC.">
+          <div class="block-time">7:50<br>8:15</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Alejandro: IA en el mundo e IA en AEC</div><div class="chips"><span class="chip warn">Visión</span><span class="chip">AEC</span></div></div>
+            <p>Marco de contexto: la IA cambia cómo se busca información, cómo se produce contenido, cómo se decide y cómo se automatiza trabajo. En AEC, esto toca diseño, BIM, oficina técnica, obra, gerencia y educación continua.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Slides clave</b><span>Antes vs ahora; IA como copiloto; casos AEC visibles.</span></div>
+              <div class="mini"><b>Aprendizaje</b><span>No esperar a ser experto: empezar con usos seguros y verificables.</span></div>
+              <div class="mini"><b>Puente</b><span>“Para usarla bien, primero entendamos qué es y qué no es.”</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="emanuel" data-title="Emanuel: conceptos de IA generativa" data-time="8:15 - 8:40" data-output="Conceptos base claros: generación, límites, errores y validación.">
+          <div class="block-time">8:15<br>8:40</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Emanuel: conceptos de IA generativa</div><div class="chips"><span class="chip blue">Base</span><span class="chip">Simple</span></div></div>
+            <p>Explicación para público general: qué es IA generativa, qué son modelos, qué tipos de salida puede crear, por qué se equivoca y cómo validar.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Slides clave</b><span>IA generativa, modelos, alucinaciones, validación.</span></div>
+              <div class="mini"><b>Aprendizaje</b><span>La IA no reemplaza criterio; amplifica capacidad si se le da contexto.</span></div>
+              <div class="mini"><b>Puente</b><span>“Ahora que sabemos qué hace, veamos cómo pedirle bien.”</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="fabrizio" data-title="Fabrizio: herramientas y prompts" data-time="8:40 - 9:05" data-output="Prompt base entendido y herramientas listas para laboratorio.">
+          <div class="block-time">8:40<br>9:05</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Fabrizio: herramientas y prompts</div><div class="chips"><span class="chip blue">ChatGPT</span><span class="chip">Claude</span><span class="chip">Gemini</span></div></div>
+            <p>Demostración aplicada: cómo transformar una idea en una respuesta útil usando rol, contexto, tarea, formato y criterio. Mostrar diferencias simples entre respuesta rápida y análisis más profundo.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Prompt base</b><span>Rol + contexto + tarea + formato + criterio de calidad.</span></div>
+              <div class="mini"><b>Aprendizaje</b><span>Más razonamiento no significa más verdad; siempre se revisa.</span></div>
+              <div class="mini"><b>Puente</b><span>“Con esto ya podemos crear la primera evidencia.”</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="daniella anggie" data-title="Daniella y Anggie aterrizan casos, evidencia y Skool" data-time="9:05 - 9:20" data-output="Formato de evidencia claro, link de comunidad reforzado y entrega entendida.">
+          <div class="block-time">9:05<br>9:20</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Daniella y Anggie aterrizan casos, evidencia y Skool</div><div class="chips"><span class="chip green">Evidencia</span><span class="chip">Skool</span></div></div>
+            <p>Explican casos de entrega: One Page de idea IA para obra, resumen visual de caso AEC, matriz simple de aplicación o mini presentación. Mostrar dónde subir, cómo nombrar y qué debe contener.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Formato</b><span>Nombre, perfil, problema AEC, prompt usado, resultado y criterio de revisión.</span></div>
+              <div class="mini"><b>Valor</b><span>La evidencia cuenta para certificado y ranking.</span></div>
+              <div class="mini"><b>Soporte</b><span>Anggie fija links; Daniella resuelve reglas.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="fabrizio cabina" data-title="Laboratorio guiado: crear One Page o mini pieza con IA" data-time="9:20 - 9:45" data-output="Participantes con una evidencia breve lista para subir.">
+          <div class="block-time">9:20<br>9:45</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Laboratorio guiado: crear One Page o mini pieza con IA</div><div class="chips"><span class="chip green">Práctica</span><span class="chip">Entrega</span></div></div>
+            <p>Trabajo en vivo. El participante elige un caso simple AEC, usa el prompt base, genera una salida, la revisa y la convierte en evidencia breve.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Prompt sugerido</b><span>“Actúa como asesor IA para AEC. Ayúdame a crear una One Page sobre...”</span></div>
+              <div class="mini"><b>Cabina</b><span>Monitorear dudas repetidas y traer 2 ejemplos al cierre.</span></div>
+              <div class="mini"><b>Salida</b><span>Archivo, slide, texto estructurado o captura lista para subir.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="anggie erika daniella" data-title="Anggie, Erika y Daniella como puentes narrativos" data-time="9:45 - 10:00" data-output="Comunidad reactivada, dudas ordenadas y siguiente paso reforzado.">
+          <div class="block-time">9:45<br>10:00</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Anggie, Erika y Daniella como puentes narrativos</div><div class="chips"><span class="chip">Comunidad</span><span class="chip green">Avance</span></div></div>
+            <p>Recuperan energía, muestran cómo participar, refuerzan entregas, comparten ranking parcial, resuelven dudas y conectan el laboratorio con la continuidad del reto.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Anggie</b><span>Entrega, links, comunidad y recordatorios.</span></div>
+              <div class="mini"><b>Erika</b><span>Chat, ranking, participación y capturas.</span></div>
+              <div class="mini"><b>Daniella</b><span>Reglas, certificado, ruta y siguiente sesión.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="alejandro daniella emanuel fabrizio anggie erika" data-title="Panel ligero del equipo" data-time="10:00 - 10:15" data-output="Preguntas frecuentes resueltas sin romper el ritmo.">
+          <div class="block-time">10:00<br>10:15</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Panel ligero del equipo</div><div class="chips"><span class="chip warn">Panel</span><span class="chip">Preguntas</span></div></div>
+            <p>Alejandro, Daniella, Emanuel, Fabrizio, Anggie y Erika responden preguntas seleccionadas. Mantener panel rápido: dudas frecuentes, errores comunes y cómo continuar.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Regla</b><span>Respuestas de 45 a 60 segundos.</span></div>
+              <div class="mini"><b>Filtro</b><span>Priorizar preguntas repetidas y de aplicación práctica.</span></div>
+              <div class="mini"><b>Salida</b><span>3 aprendizajes clave y una instrucción final.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="erika anggie daniella" data-title="Kahoot, validación rápida y ranking" data-time="10:15 - 10:25" data-output="Conceptos validados, ranking capturado y engagement final alto.">
+          <div class="block-time">10:15<br>10:25</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Kahoot, validación rápida y ranking</div><div class="chips"><span class="chip green">Engagement</span><span class="chip">Medición</span></div></div>
+            <p>Validar conceptos: qué es IA generativa, fórmula de buen prompt, cuándo pedir análisis, por qué validar y qué evidencia entregar.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Preguntas</b><span>5 a 7 preguntas máximas.</span></div>
+              <div class="mini"><b>Dato</b><span>Guardar ranking y participación.</span></div>
+              <div class="mini"><b>Puente</b><span>Conectar resultados con Sesión 2.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="block" tabindex="0" data-speakers="alejandro daniella anggie erika cabina" data-title="Cierre: reto, evidencia, certificado, Sesión 2 y foto final" data-time="10:25 - 10:30" data-output="CTA final, foto, replay pendiente y continuidad hacia Sesión 2.">
+          <div class="block-time">10:25<br>10:30</div>
+          <div class="block-panel">
+            <div class="block-top"><div class="block-title">Cierre: reto, evidencia, certificado, Sesión 2 y foto final</div><div class="chips"><span class="chip blue">Cierre</span><span class="chip green">Continuidad</span></div></div>
+            <p>Repetir una sola instrucción principal: subir evidencia a Skool y completar encuesta. Invitar a Sesión 2, tomar foto final, agradecer y dejar soporte abierto.</p>
+            <div class="block-grid">
+              <div class="mini"><b>Mensaje final</b><span>“La IA se aprende usándola con criterio y mostrando evidencia.”</span></div>
+              <div class="mini"><b>Acción</b><span>QR en pantalla y mensaje fijado.</span></div>
+              <div class="mini"><b>Post</b><span>Enviar replay, encuesta y recordatorio.</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="slides" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">06</div>
+        <div>
+          <h2>Slides clave y aprendizajes</h2>
+          <p class="sub">Contenido para que una audiencia general entienda IA sin sentirse abrumada. La profundidad está en los ejemplos y en la práctica, no en la jerga.</p>
+        </div>
+      </div>
+      <div class="grid g2">
+        <article class="card">
+          <div class="kicker">Bloque Alejandro</div>
+          <h4>IA en el mundo y en AEC</h4>
+          <p>Mostrar cómo la IA se convirtió en interfaz de trabajo: crear textos, analizar documentos, generar ideas, revisar riesgos, programar, producir reportes y automatizar tareas. En AEC: BIM, diseño, obra, presupuestos, seguridad, planificación y gerencia.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Bloque Emanuel</div>
+          <h4>Conceptos de IA generativa</h4>
+          <p>Explicar que un modelo genera respuestas a partir de patrones, contexto y ejemplos. Puede crear contenido útil, pero también cometer errores. La validación profesional no se delega.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Bloque Fabrizio</div>
+          <h4>Herramientas y prompts</h4>
+          <p>Comparar ChatGPT, Claude y Gemini en lenguaje simple. Enseñar que un buen prompt tiene rol, contexto, tarea, formato y criterio. Pedir a la IA que explique supuestos mejora la revisión.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Bloque puentes</div>
+          <h4>Daniella, Anggie y Erika</h4>
+          <p>Conectar aprendizaje con acción: qué hacer ahora, dónde subir evidencia, cómo participar, cómo ganar ranking, cómo obtener certificado y qué esperar en la siguiente sesión.</p>
+        </article>
+      </div>
+
+      <h3>Razonamiento avanzado explicado simple</h3>
+      <div class="grid g3">
+        <article class="card">
+          <h4>IA rápida vs IA que piensa más</h4>
+          <p>Para preguntas simples, una respuesta directa basta. Para comparar opciones, revisar riesgos o construir un plan, conviene pedir análisis paso a paso.</p>
+        </article>
+        <article class="card">
+          <h4>Más análisis no significa más verdad</h4>
+          <p>Una respuesta larga puede sonar segura y aun así estar mal. Hay que verificar fechas, normas, cálculos, fuentes, supuestos y decisiones críticas.</p>
+        </article>
+        <article class="card">
+          <h4>En AEC, la IA sirve para producir evidencia</h4>
+          <p>Crear, comparar, resumir, revisar riesgos, estructurar reportes, convertir reuniones en acciones y preparar entregables que luego un profesional valida.</p>
+        </article>
+      </div>
+
+      <div class="callout" id="prompt-card">
+        <div class="callout-row">
+          <div>
+            <b>Fórmula de buen prompt para enseñar</b>
+            <span id="prompt-template">Actúa como [rol]. Te doy este [contexto]. Necesito que hagas [tarea]. Entrégalo en [formato]. Evalúa la respuesta con este [criterio de calidad].</span>
+          </div>
+          <button class="copy-btn" type="button" data-copy-target="prompt-template">Copiar prompt</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="evidencia" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">07</div>
+        <div>
+          <h2>Reto 1: primera evidencia aplicada</h2>
+          <p class="sub">La evidencia debe ser pequeña, clara y fácil de subir. El objetivo es activar, no exigir una entrega compleja.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Elemento</th><th>Qué debe contener</th><th>Criterio simple</th><th>Responsable de reforzar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num-cell">Título</td><td>Nombre del caso o problema AEC.</td><td>Se entiende en una línea.</td><td>Daniella</td></tr>
+            <tr><td class="num-cell">Contexto</td><td>Qué quiere mejorar, crear, revisar o comunicar.</td><td>Conecta con diseño, obra, BIM, oficina técnica o gestión.</td><td>Alejandro / Emanuel</td></tr>
+            <tr><td class="num-cell">Prompt</td><td>Prompt usado con rol, contexto, tarea, formato y criterio.</td><td>Puede ser replicado por otra persona.</td><td>Fabrizio</td></tr>
+            <tr><td class="num-cell">Resultado</td><td>One Page, mini slide, resumen visual, matriz o checklist.</td><td>Es útil, claro y accionable.</td><td>Anggie</td></tr>
+            <tr><td class="num-cell">Validación</td><td>Una nota sobre qué revisó el participante.</td><td>No copia ciegamente la respuesta de IA.</td><td>Erika / Daniella</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout success">
+        <b>Plantilla de instrucción para el chat</b>
+        Sube tu evidencia en Skool con este formato: Nombre + Profesión + Caso AEC + herramienta usada + captura o archivo + una línea de aprendizaje.
+      </div>
+    </section>
+
+    <section id="logistica" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">08</div>
+        <div>
+          <h2>Logística operativa</h2>
+          <p class="sub">Separar claramente escenario, cabina, comunidad, soporte, data y seguimiento. La sesión debe sentirse fluida aunque haya muchas piezas detrás.</p>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Frente</th><th>Responsable sugerido</th><th>Antes</th><th>Durante</th><th>Después</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Dirección narrativa</td><td>Alejandro</td><td>Validar historia, slides clave y ejemplos AEC.</td><td>Abrir visión, panel y cierre de autoridad.</td><td>Mensaje de continuidad y clip principal.</td></tr>
+            <tr><td>Operación de reto</td><td>Daniella</td><td>Reglas, certificado, evidencia y ruta.</td><td>Explicar dinámica, resolver dudas y ordenar cierre.</td><td>Seguimiento de entregas y certificados.</td></tr>
+            <tr><td>Conceptos IA</td><td>Emanuel</td><td>Simplificar conceptos y ejemplos.</td><td>Explicar IA generativa sin tecnicismos innecesarios.</td><td>Compartir resumen de aprendizaje.</td></tr>
+            <tr><td>Herramientas y prompts</td><td>Fabrizio</td><td>Preparar demos y prompts base.</td><td>Mostrar herramientas, laboratorio y soporte técnico.</td><td>Publicar prompt base y plantilla.</td></tr>
+            <tr><td>Comunidad y entrega</td><td>Anggie</td><td>Links, QR, copy de mensajes y comunidad.</td><td>Fijar instrucciones, links, soporte y llamados a acción.</td><td>Recordatorio, métricas de conversión y asistencia.</td></tr>
+            <tr><td>Activación en vivo</td><td>Erika</td><td>Kahoot, chat, ranking y dinámica.</td><td>Animar chat, recoger preguntas y capturas.</td><td>Ranking, testimonios y señales de comunidad.</td></tr>
+            <tr><td>Cabina técnica</td><td>Carolina / Ivana / Patrick</td><td>Zoom, grabación, permisos, audio, cohosts.</td><td>Control técnico, admisión, grabación y soporte.</td><td>Replay, asistencia y backup de data.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid g3">
+        <article class="card">
+          <div class="kicker">Links</div>
+          <h4>Un mensaje fijado</h4>
+          <p>Landing, Skool, encuesta, soporte, Kahoot, evidencia y próxima sesión deben vivir en un solo mensaje operativo.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Cabina</div>
+          <h4>Checklist visible</h4>
+          <p>Grabación, audio, pantalla, cohosts, admisión, chat, QR y capturas deben estar asignados antes de 7:20.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Soporte</div>
+          <h4>Canal rápido</h4>
+          <p>Separar preguntas técnicas de preguntas de contenido para no romper el ritmo de la sesión principal.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="checklist" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">09</div>
+        <div>
+          <h2>Checklist de ejecución</h2>
+          <p class="sub">Lista simple para que el equipo opere antes, durante y después sin depender de memoria.</p>
+        </div>
+      </div>
+      <div class="grid g3">
+        <div>
+          <h3>Antes de abrir sala</h3>
+          <div class="checklist">
+            <div class="check"><span class="box"></span><span><b>PPT final cargado.</b> Revisar nombres, horarios, QR y slides de reto.</span></div>
+            <div class="check"><span class="box"></span><span><b>Zoom listo.</b> Grabación, cohosts, chat, sala de espera y permisos.</span></div>
+            <div class="check"><span class="box"></span><span><b>Links verificados.</b> Landing, Skool, encuesta, Kahoot, soporte y evidencia.</span></div>
+            <div class="check"><span class="box"></span><span><b>Prompts preparados.</b> Prompt base, ejemplo AEC y backup por si falla demo.</span></div>
+            <div class="check"><span class="box"></span><span><b>Mensaje fijado.</b> Una versión corta para Zoom y otra para Skool.</span></div>
+          </div>
+        </div>
+        <div>
+          <h3>Durante la sesión</h3>
+          <div class="checklist">
+            <div class="check"><span class="box"></span><span><b>Capturar participación.</b> Chat inicial, screenshots, ranking y preguntas frecuentes.</span></div>
+            <div class="check"><span class="box"></span><span><b>Controlar tiempos.</b> Avisos a speakers 3 minutos antes de cerrar cada bloque.</span></div>
+            <div class="check"><span class="box"></span><span><b>Proteger laboratorio.</b> No recortar práctica ni instrucciones de evidencia.</span></div>
+            <div class="check"><span class="box"></span><span><b>Ordenar preguntas.</b> Agrupar repetidas para panel ligero.</span></div>
+            <div class="check"><span class="box"></span><span><b>Repetir CTA.</b> Subir evidencia, encuesta, Sesión 2 y certificado.</span></div>
+          </div>
+        </div>
+        <div>
+          <h3>Después del cierre</h3>
+          <div class="checklist">
+            <div class="check"><span class="box"></span><span><b>Enviar replay.</b> Link, resumen, prompt base y plantilla de evidencia.</span></div>
+            <div class="check"><span class="box"></span><span><b>Medir conversión.</b> Asistencia, encuesta, evidencias, Skool y ranking.</span></div>
+            <div class="check"><span class="box"></span><span><b>Publicar comunidad.</b> Ganadores, ejemplos y recordatorio de Sesión 2.</span></div>
+            <div class="check"><span class="box"></span><span><b>Actualizar dashboard.</b> Fuentes, asistencia y calidad de data.</span></div>
+            <div class="check"><span class="box"></span><span><b>Detectar fricciones.</b> Dudas repetidas, errores de links y problemas de entrega.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="metricas" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">10</div>
+        <div>
+          <h2>Métricas, riesgos y decisiones</h2>
+          <p class="sub">La sesión debe dejar aprendizaje, pero también datos para mejorar el reto y preparar la continuidad.</p>
+        </div>
+      </div>
+
+      <div class="grid g4">
+        <article class="card"><div class="metric">01</div><h4>Registros landing</h4><p>Fuente, perfil, nivel IA y país.</p></article>
+        <article class="card"><div class="metric">02</div><h4>Asistencia Zoom</h4><p>Ingresos, permanencia y pico de audiencia.</p></article>
+        <article class="card"><div class="metric">03</div><h4>Participación</h4><p>Chat, Kahoot, preguntas y screenshots.</p></article>
+        <article class="card"><div class="metric">04</div><h4>Evidencias</h4><p>Subidas, calidad, formato y usuarios activos.</p></article>
+        <article class="card"><div class="metric">05</div><h4>Skool</h4><p>Altas, publicaciones, comentarios y ranking.</p></article>
+        <article class="card"><div class="metric">06</div><h4>Encuesta</h4><p>Dolores, nivel IA, intereses y señales de compra.</p></article>
+        <article class="card"><div class="metric">07</div><h4>Certificados</h4><p>Elegibles, pendientes y fricciones.</p></article>
+        <article class="card"><div class="metric">08</div><h4>Continuidad</h4><p>Registro a Sesión 2, interés en programas y Summit.</p></article>
+      </div>
+
+      <h3>Riesgos a controlar</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Riesgo</th><th>Señal temprana</th><th>Mitigación</th><th>Owner</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Demasiada teoría</td><td>Baja participación en chat antes de 8:40.</td><td>Recortar slides y adelantar ejemplo práctico.</td><td>Alejandro / Emanuel</td></tr>
+            <tr><td>Confusión de entrega</td><td>Preguntas repetidas: dónde subo, qué formato, hasta cuándo.</td><td>Mensaje fijado, QR en pantalla y ejemplo visual.</td><td>Daniella / Anggie</td></tr>
+            <tr><td>Laboratorio sin tiempo</td><td>Bloques previos se extienden más de 10 minutos.</td><td>No recortar práctica; mover preguntas al panel.</td><td>Fabrizio / Daniella</td></tr>
+            <tr><td>Falla técnica</td><td>Demo no carga, audio inestable o link roto.</td><td>Backup: capturas, prompt listo y demo grabada.</td><td>Cabina técnica</td></tr>
+            <tr><td>Horario público vs operativo</td><td>La landing comunica 7:00-9:00 p.m., pero esta guía opera 7:20-10:30 p.m.</td><td>Confirmar comunicación final o preparar versión compacta si se debe cerrar antes.</td><td>Daniella / Anggie</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warning">
+        <b>Prioridad si hay que recortar</b>
+        No recortar laboratorio, evidencia ni cierre con instrucciones. Si falta tiempo, reducir teoría, panel o ejemplos secundarios.
+      </div>
+    </section>
+
+    <section id="criterios" class="reveal">
+      <div class="section-head">
+        <div class="sec-num">11</div>
+        <div>
+          <h2>Criterios de optimización aplicados</h2>
+          <p class="sub">La versión final combina el relato público del reto, rendimiento de animaciones, accesibilidad de movimiento y una estructura de operación útil para el equipo.</p>
+        </div>
+      </div>
+      <div class="grid g4">
+        <article class="card">
+          <div class="kicker">AECODE oficial</div>
+          <h4>3 miércoles, 3 niveles</h4>
+          <p>El contenido conserva la progresión pública: fundamentos, asistentes y automatización, con certificación, comunidad y entregables.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Motion performance</div>
+          <h4>Transform + opacity</h4>
+          <p>Las microinteracciones evitan animar layout. El movimiento se concentra en entrada, selección, scroll y foco operativo.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Scroll motion</div>
+          <h4>Revelado progresivo</h4>
+          <p>La guía usa revelado por viewport con fallback de JavaScript, para que la lectura se sienta guiada sin saturar.</p>
+        </article>
+        <article class="card">
+          <div class="kicker">Accesibilidad</div>
+          <h4>Reduced motion</h4>
+          <p>Si el sistema del usuario reduce movimiento, las animaciones se desactivan y la página mantiene estructura y legibilidad.</p>
+        </article>
+      </div>
+      <div class="callout">
+        <b>Fuentes revisadas para esta optimización</b>
+        <a href="https://aecode.ai/reto-ia" target="_blank" rel="noopener">Landing oficial AECODE</a> ·
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations" target="_blank" rel="noopener">MDN Scroll-driven animations</a> ·
+        <a href="https://web.dev/articles/animations-guide" target="_blank" rel="noopener">web.dev High-performance animations</a> ·
+        <a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C39" target="_blank" rel="noopener">W3C prefers-reduced-motion</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toolbar">
+  <button class="toolbtn" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Subir">↑</button>
+  <button class="toolbtn" type="button" onclick="window.print()" aria-label="Imprimir o guardar como PDF">PDF</button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Listo</div>
+
+<footer>
+  <div class="foot">
+    <span>AECODE · Reto 3 Días AECODE · Guía operativa de Sesión 1</span>
+    <span>Diseño blanco · Plus Jakarta Sans · Bloques IA Process</span>
+  </div>
+</footer>
+
+<script>
+  const progress = document.getElementById('progress');
+  const sections = [...document.querySelectorAll('main section')];
+  const navLinks = [...document.querySelectorAll('.toc a')];
+  const reveals = [...document.querySelectorAll('.reveal')];
+
+  function onScroll(){
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    let current = sections[0]?.id;
+    for(const section of sections){
+      if(section.getBoundingClientRect().top < 160) current = section.id;
+    }
+    navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + current));
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.12});
+  reveals.forEach(el => io.observe(el));
+
+  document.querySelectorAll('[data-tab-target]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.tabGroup || 'default';
+      document.querySelectorAll(`[data-tab-group="${group}"]`).forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll(`[data-tab-panel-group="${group}"]`).forEach(panel => panel.classList.remove('active'));
+      btn.classList.add('active');
+      const target = document.getElementById(btn.dataset.tabTarget);
+      if(target) target.classList.add('active');
+    });
+  });
+
+  const toast = document.getElementById('toast');
+  function showToast(message){
+    if(!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    window.clearTimeout(showToast.timer);
+    showToast.timer = window.setTimeout(() => toast.classList.remove('show'), 1700);
+  }
+
+  const agendaBlocks = [...document.querySelectorAll('.block[data-speakers]')];
+  const stageBoard = document.getElementById('stage-board');
+  const stageTime = document.getElementById('stage-time');
+  const stageOwners = document.getElementById('stage-owners');
+  const stageOutput = document.getElementById('stage-output');
+
+  function selectAgendaBlock(block, shouldScroll = false){
+    agendaBlocks.forEach(item => item.classList.toggle('active', item === block));
+    if(stageBoard){
+      stageBoard.querySelector('h3').textContent = block.dataset.title || 'Bloque seleccionado';
+      stageBoard.querySelector('p').textContent = block.querySelector('.block-panel > p')?.textContent || '';
+      if(stageTime) stageTime.textContent = block.dataset.time || '';
+      if(stageOwners) stageOwners.textContent = (block.dataset.speakers || '').split(' ').map(name => name.charAt(0).toUpperCase() + name.slice(1)).join(', ');
+      if(stageOutput) stageOutput.textContent = block.dataset.output || '';
+    }
+    if(shouldScroll) block.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  agendaBlocks.forEach(block => {
+    block.addEventListener('click', () => selectAgendaBlock(block));
+    block.addEventListener('keydown', event => {
+      if(event.key === 'Enter' || event.key === ' '){
+        event.preventDefault();
+        selectAgendaBlock(block, true);
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('[data-filter]').forEach(item => item.classList.remove('active'));
+      btn.classList.add('active');
+      let firstVisible = null;
+      agendaBlocks.forEach(block => {
+        const match = filter === 'all' || (block.dataset.speakers || '').split(' ').includes(filter);
+        block.hidden = !match;
+        if(match && !firstVisible) firstVisible = block;
+      });
+      if(firstVisible) selectAgendaBlock(firstVisible, false);
+      showToast(filter === 'all' ? 'Agenda completa activada' : `Filtro activo: ${btn.textContent.trim()}`);
+    });
+  });
+
+  document.querySelectorAll('[data-copy-target]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const target = document.getElementById(btn.dataset.copyTarget);
+      const text = target?.textContent?.trim();
+      if(!text) return;
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast('Prompt copiado');
+      }catch{
+        showToast('Selecciona y copia el prompt manualmente');
+      }
+    });
+  });
+
+  const magneticItems = [...document.querySelectorAll('.command-tile,.pill-link,.filter-chip,.toolbtn,.copy-btn')];
+  magneticItems.forEach(item => {
+    item.addEventListener('pointermove', event => {
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const rect = item.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width - .5) * 8;
+      const y = ((event.clientY - rect.top) / rect.height - .5) * 8;
+      item.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    item.addEventListener('pointerleave', () => {
+      item.style.transform = '';
+    });
+  });
+
+  if(agendaBlocks[0]) selectAgendaBlock(agendaBlocks[0]);
+</script>
+</body>
+</html>
