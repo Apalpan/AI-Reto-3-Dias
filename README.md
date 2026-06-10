@@ -15,9 +15,9 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 - Mapa visual del proceso: onboarding, 3 módulos, evidencias, certificación y Summit.
 - Sección AECODE Investigación con resumen, 8 dimensiones, preguntas clave y uso en vivo.
 - Sección Onboarding y preguntas por cápsula con formatos ABCD, V/F, escribir y utilidad de cada pregunta.
-- 3 módulos completos con sesión, cápsulas microlearning, skills, evidencia y validación.
+- 3 módulos completos con sesión, cápsulas, skills, evidencia y validación.
 - Tabs de detalle para Sesión 1, Sesión 2 y Sesión 3.
-- Dinámicas por sesión: comparativas de modelos, Kahoot, juicio IA, mito/realidad, asistentes, productividad, Antigravity, agentes y automatización.
+- Puentes y dinámicas por sesión: activaciones, comparativas de modelos, Kahoot, juicio IA, mito/realidad, asistentes, productividad, Antigravity, agentes y automatización.
 - Línea de conducción: Daniella y Erika como host moderadoras de storytelling/activación entre Anggie, instructores, Rodrigo y Genesis.
 - Agenda operativa de Sesión 1 con filtros por responsable.
 - Gestión completa por marketing, difusión, ventas, ventas chat, instructores, host moderadoras, back office, comunidad, sponsors y data.
