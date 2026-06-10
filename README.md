@@ -17,12 +17,14 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 - Sección Onboarding y preguntas por cápsula con formatos ABCD, V/F, escribir y utilidad de cada pregunta.
 - 3 módulos completos con sesión, cápsulas, skills, evidencia y validación.
 - Tabs de detalle para Sesión 1, Sesión 2 y Sesión 3 con secuencia completa de 9 cápsulas y 9 puentes por sesión.
+- Sesión 1 actualizada con mención inicial al AI Construction Summit, títulos directos de las 3 sesiones, mercado IA, adopción, costos de herramientas, productividad por sector, aplicaciones AEC, ENIA 2026-2030, conceptos clave, data, casos de uso, herramientas actuales, seguridad, prompting y One Page.
 - Command Center premium de sesiones con métricas visuales: 3 sesiones, 27 cápsulas, 27 puentes, 27 tarjetas guía PPT y 3 evidencias certificables.
 - Gráficas interactivas por sesión para abrir directamente Fundamentos, Asistentes o Agentes.
 - Ruta visual de aprendizaje y certificación: onboarding, crear, consultar, automatizar, certificar y AI Construction Summit.
 - Puentes y dinámicas por sesión: activaciones, comparativas de modelos, Kahoot, juicio IA, mito/realidad, asistentes, productividad, Antigravity, agentes y automatización.
 - Filtros interactivos por sesión para ver todo, solo cápsulas o solo puentes.
 - Línea de conducción: Daniella y Erika como host moderadoras de storytelling/activación entre Anggie, instructores, Rodrigo y Genesis.
+- Apoyo comercial actualizado: Genesis lidera ventas; Talia, Yadira y Reiner apoyan ventas chat, sponsors y CTA.
 - Agenda operativa de Sesión 1 con filtros por responsable.
 - Gestión completa por marketing, difusión, ventas, ventas chat, instructores, host moderadoras, back office, comunidad, sponsors y data.
 - Checklist operativo, métricas (+1000 inscritos, +500 asistentes, +300 activos) y cierre estratégico hacia AI Construction Summit.
