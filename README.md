@@ -14,6 +14,7 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 - Programa principal con enfoque de marketing, aprendizaje, comunidad y conversión.
 - Mapa visual del proceso: onboarding, 3 módulos, evidencias, certificación y Summit.
 - Sección AECODE Investigación con resumen, 8 dimensiones, preguntas clave y uso en vivo.
+- Sección Onboarding y preguntas por cápsula con formatos ABCD, V/F, escribir y utilidad de cada pregunta.
 - 3 módulos completos con sesión, cápsulas microlearning, skills, evidencia y validación.
 - Tabs de detalle para Sesión 1, Sesión 2 y Sesión 3.
 - Dinámicas por sesión: comparativas de modelos, Kahoot, juicio IA, mito/realidad, asistentes, productividad, Antigravity, agentes y automatización.
@@ -26,6 +27,7 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 
 - Tabs por sesión.
 - Tabs por investigación.
+- Tabs de onboarding y evaluación por cápsula.
 - Filtros por responsable.
 - Panel operativo del bloque seleccionado.
 - Botón para copiar prompt base.

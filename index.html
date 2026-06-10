@@ -108,6 +108,8 @@ p{margin:0 0 14px;max-width:900px}
 .source-link{border:1px solid var(--line2);background:#fff;border-radius:15px;padding:11px 12px;font-size:12px;font-weight:850;color:var(--navy);transition:transform .2s ease,border-color .2s ease}
 .source-link:hover{transform:translateY(-2px);border-color:rgba(49,87,255,.32);text-decoration:none}
 .qa-list{display:grid;gap:10px;margin-top:12px}.qa-item{border:1px solid var(--line2);background:#fff;border-radius:16px;padding:12px}.qa-item b{display:block;font-size:12px;color:var(--blue);margin-bottom:4px}.qa-item span{display:block;font-size:13px;color:var(--muted);font-weight:650}
+.question-bank{display:grid;gap:12px;margin-top:16px}.q-card{display:grid;grid-template-columns:110px minmax(0,1fr) minmax(220px,.85fr);gap:12px;border:1px solid var(--line);background:#fff;border-radius:18px;padding:14px;box-shadow:0 12px 34px rgba(24,39,75,.055)}
+.q-type{display:inline-flex;align-items:center;justify-content:center;height:28px;border-radius:999px;background:var(--paper3);border:1px solid var(--line);font-size:11px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.06em}.q-card h4{margin:0 0 6px;font-size:14px}.q-card p{font-size:12.5px;color:var(--muted);margin:0}.q-card .answer{border-left:3px solid var(--green);padding-left:10px;font-size:12.5px;color:var(--muted);font-weight:650}.q-card .answer b{display:block;color:var(--navy);font-size:12px;margin-bottom:3px}
 .growth-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}
 .growth-card{border:1px solid var(--line);border-radius:22px;background:#fff;padding:18px;box-shadow:0 12px 38px rgba(24,39,75,.07);position:relative;overflow:hidden}
 .growth-card:after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--green))}
@@ -164,7 +166,7 @@ td{padding:12px 14px;border-bottom:1px solid var(--line2);vertical-align:top}tr:
 @keyframes scan{0%,45%{transform:translateX(-130%)}70%,100%{transform:translateX(130%)}}@keyframes rail{0%,100%{transform:translateX(-18%)}50%{transform:translateX(18%)}}@keyframes reveal-soft{from{opacity:.35;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
 @supports (animation-timeline:view()){.card,.map-step,.block-panel,.callout{animation:reveal-soft linear both;animation-timeline:view();animation-range:entry 0% cover 24%}}
 footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--muted);font-size:12px}.foot{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media(max-width:1120px){.hero-grid{grid-template-columns:1fr}.control-card{max-width:760px}.meta-strip{grid-template-columns:repeat(3,1fr)}.process-map{grid-template-columns:repeat(2,1fr)}.agenda-console{grid-template-columns:1fr}.stage-board{position:relative;top:auto}.block-grid{grid-template-columns:1fr}.bridge-grid,.source-grid,.growth-metrics{grid-template-columns:1fr}}
+@media(max-width:1120px){.hero-grid{grid-template-columns:1fr}.control-card{max-width:760px}.meta-strip{grid-template-columns:repeat(3,1fr)}.process-map{grid-template-columns:repeat(2,1fr)}.agenda-console{grid-template-columns:1fr}.stage-board{position:relative;top:auto}.block-grid{grid-template-columns:1fr}.bridge-grid,.source-grid,.growth-metrics,.q-card{grid-template-columns:1fr}}
 @media(max-width:880px){.shell{grid-template-columns:1fr;padding:0 20px}.toc{display:none}main{padding:0}.hero-wrap{padding:32px 20px 34px}.topbar{align-items:flex-start;margin-bottom:34px}.brand{flex-direction:column;align-items:flex-start;gap:6px}.meta-strip{grid-template-columns:1fr 1fr}.command-grid,.g2,.g3,.g4,.process-map{grid-template-columns:1fr}.host-rail{grid-template-columns:1fr;gap:4px}.host-rail small{text-align:left}.runway{margin-left:-20px;margin-right:-20px;padding-left:20px}.block{grid-template-columns:46px 1fr;gap:12px}.block-time{width:42px;height:42px;border-radius:14px;font-size:9px}.flowline:before{left:20px}}
 @media(max-width:560px){.hero-wrap{width:100%;padding-left:20px;padding-right:20px;overflow:hidden}h1{font-size:34px;line-height:1.08;letter-spacing:-.04em;max-width:100%;overflow-wrap:break-word}.logo-img{width:180px}.hero-actions{display:grid;grid-template-columns:1fr}.pill-link{width:100%}.meta-strip{grid-template-columns:1fr}.stamp{display:none}.signal{grid-template-columns:1fr}.signal .tag{justify-self:start}.toolbar{right:14px;bottom:14px}.toast{left:14px;right:14px;transform:translateY(18px);text-align:center}.toast.show{transform:translateY(0)}table{min-width:680px}}
 @media print{#progress,.toc,.toolbar,.agenda-console,.toast{display:none}.shell{display:block;padding:0 18px}main{padding:0}.hero{break-after:page}section{break-inside:avoid}.tab-panel{display:block}.reveal{opacity:1;transform:none}}
@@ -222,15 +224,16 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
     <a class="active" href="#programa"><span class="n">01</span><span>Programa principal</span></a>
     <a href="#proceso"><span class="n">02</span><span>Mapa del proceso</span></a>
     <a href="#investigacion"><span class="n">03</span><span>AECODE Investigación</span></a>
-    <a href="#modulos"><span class="n">04</span><span>3 módulos</span></a>
-    <a href="#sesiones"><span class="n">05</span><span>Detalle por sesión</span></a>
-    <a href="#dinamicas"><span class="n">06</span><span>Dinámicas por sesión</span></a>
-    <a href="#agenda"><span class="n">07</span><span>Agenda sesión 1</span></a>
-    <a href="#evidencia"><span class="n">08</span><span>Evidencia y certificado</span></a>
-    <a href="#gestion"><span class="n">09</span><span>Gestión completa</span></a>
-    <a href="#checklist"><span class="n">10</span><span>Checklist operativo</span></a>
-    <a href="#metricas"><span class="n">11</span><span>Métricas</span></a>
-    <a href="#summit"><span class="n">12</span><span>AI Construction Summit</span></a>
+    <a href="#onboarding"><span class="n">04</span><span>Onboarding y preguntas</span></a>
+    <a href="#modulos"><span class="n">05</span><span>3 módulos</span></a>
+    <a href="#sesiones"><span class="n">06</span><span>Detalle por sesión</span></a>
+    <a href="#dinamicas"><span class="n">07</span><span>Dinámicas por sesión</span></a>
+    <a href="#agenda"><span class="n">08</span><span>Agenda sesión 1</span></a>
+    <a href="#evidencia"><span class="n">09</span><span>Evidencia y certificado</span></a>
+    <a href="#gestion"><span class="n">10</span><span>Gestión completa</span></a>
+    <a href="#checklist"><span class="n">11</span><span>Checklist operativo</span></a>
+    <a href="#metricas"><span class="n">12</span><span>Métricas</span></a>
+    <a href="#summit"><span class="n">13</span><span>AI Construction Summit</span></a>
   </nav>
 
   <main>
@@ -325,8 +328,64 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
       </div>
     </section>
 
+    <section id="onboarding" class="reveal">
+      <div class="section-head"><div class="sec-num">04</div><div><h2>Onboarding y preguntas por cápsula</h2><p class="sub">Selección optimizada desde la referencia antigua: solo lo necesario para diagnosticar nivel, activar plataforma, validar cápsulas y producir data útil para investigación, certificación y seguimiento comercial.</p></div></div>
+      <div class="tabs" role="tablist" aria-label="Onboarding y evaluación">
+        <button class="tab active" type="button" data-tab-group="assessment" data-tab-target="tab-onboarding">Onboarding plataforma</button>
+        <button class="tab" type="button" data-tab-group="assessment" data-tab-target="tab-cap-1">Cápsulas sesión 1</button>
+        <button class="tab" type="button" data-tab-group="assessment" data-tab-target="tab-cap-2">Cápsulas sesión 2</button>
+        <button class="tab" type="button" data-tab-group="assessment" data-tab-target="tab-cap-3">Cápsulas sesión 3</button>
+        <button class="tab" type="button" data-tab-group="assessment" data-tab-target="tab-cap-final">Cierre y continuidad</button>
+      </div>
+      <div class="tab-panel active" id="tab-onboarding" data-tab-panel-group="assessment">
+        <div class="callout"><b>Objetivo del onboarding</b> Ubicar a cada participante antes de enseñar: rol, especialidad, nivel IA, dolor principal, objetivo y potencial de conversión. Estas preguntas deben estar en registro, primera encuesta o activación inicial de Skool.</div>
+        <div class="question-bank">
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>¿Cuál es tu situación hoy?</h4><p>A. Estudiante/formación · B. Independiente · C. Empleado/equipo · D. Líder o decisor de herramientas</p></div><div class="answer"><b>Para qué sirve</b>Segmenta poder de decisión, nivel B2B y tipo de ejemplos que deben mostrarse durante la sesión.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>¿Cuál es tu especialidad principal en AEC?</h4><p>A. Arquitectura/diseño · B. Ingeniería/BIM/VDC · C. Obra/costos/planificación · D. Gestión/dirección/empresa</p></div><div class="answer"><b>Para qué sirve</b>Permite adaptar casos, prompts y cápsulas por perfil; también alimenta el estudio IA-AEC por segmento profesional.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>¿Qué tanto usas IA hoy?</h4><p>A. Nunca · B. La probé por curiosidad · C. La uso en tareas sueltas · D. Ya creo asistentes o automatizaciones</p></div><div class="answer"><b>Para qué sirve</b>Calcula madurez inicial y ayuda a medir cambio después de las 3 sesiones.</div></article>
+          <article class="q-card"><span class="q-type">Escribir</span><div><h4>Si pudieras resolver una tarea AEC con IA esta semana, ¿cuál sería?</h4><p>Respuesta corta: documento, informe, acta, presentación, revisión, metrado, coordinación, reporte u otra tarea.</p></div><div class="answer"><b>Para qué sirve</b>Identifica demanda real, backlog de cápsulas y ejemplos para usar en vivo con el público.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>¿Qué quieres llevarte del reto?</h4><p>A. Usar IA en una tarea real · B. Saber qué herramienta elegir · C. Tener método para seguir · D. Llevar IA a mi equipo/empresa</p></div><div class="answer"><b>Para qué sirve</b>Alinea expectativas, orienta el cierre comercial y permite personalizar CTA: comunidad, certificado, training o Summit.</div></article>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-cap-1" data-tab-panel-group="assessment">
+        <div class="question-bank">
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>Cápsula prompt: ¿qué no puede faltar en una buena instrucción?</h4><p>A. Rol, contexto, tarea, formato y criterio · B. Solo una frase corta · C. Repetir muchas veces · D. Elegir cualquier modelo</p></div><div class="answer"><b>Respuesta / utilidad</b>A. Certifica comprensión de prompt engineering y predice si el One Page tendrá calidad mínima.</div></article>
+          <article class="q-card"><span class="q-type">V/F</span><div><h4>La IA generativa siempre entrega información verdadera si responde con seguridad.</h4><p>Verdadero / Falso</p></div><div class="answer"><b>Respuesta / utilidad</b>Falso. Evalúa criterio de validación humana y reduce riesgo de confianza ciega.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>Cápsula modelos: ¿cuándo conviene comparar ChatGPT, Claude y Gemini?</h4><p>A. Cuando la tarea importa y necesito calidad · B. Solo cuando falla internet · C. Nunca · D. Solo para imágenes</p></div><div class="answer"><b>Respuesta / utilidad</b>A. Enseña selección de herramienta por tarea, no fanatismo por una marca.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>Cápsula privacidad: ¿qué dato no deberías subir a una IA pública sin permiso?</h4><p>A. Contrato confidencial del cliente · B. Un ejemplo inventado · C. Una pregunta general · D. Un prompt sin datos sensibles</p></div><div class="answer"><b>Respuesta / utilidad</b>A. Certifica conciencia mínima de privacidad y responsabilidad profesional.</div></article>
+          <article class="q-card"><span class="q-type">Escribir</span><div><h4>One Page: escribe tu caso en una frase.</h4><p>Formato sugerido: “Quiero usar IA para mejorar ____ en ____, logrando ____”.</p></div><div class="answer"><b>Para qué sirve</b>Genera evidencia, casos publicables, señales de dolor y materia prima para el Skill Passport.</div></article>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-cap-2" data-tab-panel-group="assessment">
+        <div class="question-bank">
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>Cápsula asistentes: ¿de qué depende la calidad de un asistente con documentos?</h4><p>A. Documentos cargados + calidad de preguntas · B. Suerte · C. Color de la interfaz · D. Hora del día</p></div><div class="answer"><b>Respuesta / utilidad</b>A. Certifica que entiende la relación fuente-pregunta-respuesta.</div></article>
+          <article class="q-card"><span class="q-type">V/F</span><div><h4>Si un asistente cita un dato de un informe, igual debo revisar la fuente original.</h4><p>Verdadero / Falso</p></div><div class="answer"><b>Respuesta / utilidad</b>Verdadero. Evalúa trazabilidad, control profesional y reducción de alucinaciones.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>Cápsula actas: ¿cuál es una buena salida de una reunión asistida por IA?</h4><p>A. Acuerdos, responsables, fechas y próximos pasos · B. Solo resumen bonito · C. Una opinión · D. Un texto sin responsables</p></div><div class="answer"><b>Respuesta / utilidad</b>A. Mide si el participante convierte IA en productividad operativa.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>Cápsula multimodal: ¿qué tarea puede combinar voz, imagen o video con IA?</h4><p>A. Extraer hallazgos de una visita o clip · B. Cambiar el logo · C. Evitar revisar · D. Sustituir todo criterio técnico</p></div><div class="answer"><b>Respuesta / utilidad</b>A. Abre demanda para asistentes con evidencias visuales, clips y reportes de obra.</div></article>
+          <article class="q-card"><span class="q-type">Escribir</span><div><h4>¿Qué documento o evidencia analizarías primero con un asistente IA?</h4><p>Ejemplos: acta, informe, TDR, expediente, contrato, norma, presupuesto, modelo BIM, video o audio.</p></div><div class="answer"><b>Para qué sirve</b>Detecta casos de uso por perfil y prioriza futuras cápsulas, plantillas y demos.</div></article>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-cap-3" data-tab-panel-group="assessment">
+        <div class="question-bank">
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>Cápsula agentes: ¿en qué se diferencia chatear con IA de automatizar?</h4><p>A. La automatización ejecuta un flujo repetible · B. Es lo mismo · C. Solo cambia el nombre · D. Siempre es más lenta</p></div><div class="answer"><b>Respuesta / utilidad</b>A. Certifica comprensión básica de agente/workflow frente a conversación aislada.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>Cápsula n8n: ¿qué se define primero en un workflow?</h4><p>A. Disparador, acción, salida y validación · B. Color de los nodos · C. Nombre del archivo · D. Precio del software</p></div><div class="answer"><b>Respuesta / utilidad</b>A. Evalúa si puede mapear proceso antes de automatizar.</div></article>
+          <article class="q-card"><span class="q-type">V/F</span><div><h4>Todo lo repetitivo debe automatizarse sin revisión humana.</h4><p>Verdadero / Falso</p></div><div class="answer"><b>Respuesta / utilidad</b>Falso. Refuerza human-in-the-loop, riesgo y control de calidad.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>Cápsula piloto/copiloto: ¿cuándo la IA debe ser copiloto y no piloto?</h4><p>A. Cuando hay impacto técnico, legal, económico o reputacional · B. Nunca · C. Siempre decide sola · D. Solo en tareas simples</p></div><div class="answer"><b>Respuesta / utilidad</b>A. Mide criterio profesional para delegación segura.</div></article>
+          <article class="q-card"><span class="q-type">Escribir</span><div><h4>Diseña tu primer workflow IA en una línea.</h4><p>Formato: “Cuando pase ____ → la IA hará ____ → el humano validará ____”.</p></div><div class="answer"><b>Para qué sirve</b>Produce evidencia final, casos para la comunidad y leads de automatización/consultoría.</div></article>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-cap-final" data-tab-panel-group="assessment">
+        <div class="question-bank">
+          <article class="q-card"><span class="q-type">Escala</span><div><h4>Del 1 al 5, ¿qué tan capaz te sientes de usar IA en una tarea real AEC?</h4><p>1. Nada capaz · 5. Muy capaz</p></div><div class="answer"><b>Para qué sirve</b>Mide cambio de confianza post-reto y evidencia impacto formativo.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>¿Qué te haría continuar en AECODE Training?</h4><p>A. Feedback en mis casos · B. Certificación · C. Comunidad · D. Plantillas y sesiones grabadas</p></div><div class="answer"><b>Para qué sirve</b>Ordena palancas de conversión sin inventar oferta.</div></article>
+          <article class="q-card"><span class="q-type">Escribir</span><div><h4>En una frase, ¿qué te llevas de estos 3 días?</h4><p>Respuesta abierta para testimonio, quote o insight de investigación.</p></div><div class="answer"><b>Para qué sirve</b>Genera lenguaje real del usuario para recap, ventas, reporte y piezas de autoridad.</div></article>
+          <article class="q-card"><span class="q-type">ABCD</span><div><h4>¿Te gustaría llevar IA a tu equipo o empresa?</h4><p>A. Sí, quiero que me contacten · B. Tal vez luego · C. Solo uso personal · D. No por ahora</p></div><div class="answer"><b>Para qué sirve</b>Identifica leads B2B calientes y separa formación individual de oportunidad corporativa.</div></article>
+        </div>
+      </div>
+    </section>
+
     <section id="modulos" class="reveal">
-      <div class="section-head"><div class="sec-num">04</div><div><h2>3 módulos del programa</h2><p class="sub">Cada módulo tiene diseño de sesión, cápsulas microlearning, skills asociados, evidencia y validación.</p></div></div>
+      <div class="section-head"><div class="sec-num">05</div><div><h2>3 módulos del programa</h2><p class="sub">Cada módulo tiene diseño de sesión, cápsulas microlearning, skills asociados, evidencia y validación.</p></div></div>
       <div class="grid g3">
         <article class="card module-card">
           <div class="module-head"><div><div class="kicker">Módulo 1</div><h4>Fundamentos de IA + creación con IA</h4></div><div class="module-num">01</div></div>
@@ -368,7 +427,7 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
     </section>
 
     <section id="sesiones" class="reveal">
-      <div class="section-head"><div class="sec-num">05</div><div><h2>Detalle por sesión</h2><p class="sub">Las tres sesiones se mantienen en vivo a las 7:30 p.m. Daniella y Erika son host moderadoras en todas: abren, activan, conectan, controlan tiempos y sostienen el storytelling.</p></div></div>
+      <div class="section-head"><div class="sec-num">06</div><div><h2>Detalle por sesión</h2><p class="sub">Las tres sesiones se mantienen en vivo a las 7:30 p.m. Daniella y Erika son host moderadoras en todas: abren, activan, conectan, controlan tiempos y sostienen el storytelling.</p></div></div>
       <div class="tabs" role="tablist" aria-label="Sesiones">
         <button class="tab active" type="button" data-tab-group="sessions" data-tab-target="tab-sesion-1">Sesión 1 · Fundamentos</button>
         <button class="tab" type="button" data-tab-group="sessions" data-tab-target="tab-sesion-2">Sesión 2 · Asistentes</button>
@@ -407,7 +466,7 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
     </section>
 
     <section id="dinamicas" class="reveal">
-      <div class="section-head"><div class="sec-num">06</div><div><h2>Dinámicas por sesión</h2><p class="sub">Cada sesión debe combinar explicación corta, participación constante, demostración, juego y evidencia. Las dinámicas hacen que el público general entienda IA haciendo, comparando y decidiendo.</p></div></div>
+      <div class="section-head"><div class="sec-num">07</div><div><h2>Dinámicas por sesión</h2><p class="sub">Cada sesión debe combinar explicación corta, participación constante, demostración, juego y evidencia. Las dinámicas hacen que el público general entienda IA haciendo, comparando y decidiendo.</p></div></div>
       <h3>Secuencia de conducción: puentes + profundidad</h3>
       <div class="runway" aria-label="Secuencia narrativa de la sesión">
         <div class="host-rail"><span>Host moderadoras</span><b>Daniella + Erika</b><small>Conducción, activación, chat, transiciones, compromiso y cierre de energía.</small></div>
@@ -475,7 +534,7 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
     </section>
 
     <section id="agenda" class="reveal">
-      <div class="section-head"><div class="sec-num">07</div><div><h2>Agenda operativa de Sesión 1</h2><p class="sub">Inicio visible del programa: 7:30 p.m. La sala de espera y preparación previa viven como bloque interno, no como inicio público.</p></div></div>
+      <div class="section-head"><div class="sec-num">08</div><div><h2>Agenda operativa de Sesión 1</h2><p class="sub">Inicio visible del programa: 7:30 p.m. La sala de espera y preparación previa viven como bloque interno, no como inicio público.</p></div></div>
       <div class="agenda-console">
         <div class="agenda-toolbar"><b>Filtro rápido por responsable</b><div class="filterbar">
           <button class="filter-chip active" type="button" data-filter="all">Todos</button><button class="filter-chip" type="button" data-filter="alejandro">Alejandro</button><button class="filter-chip" type="button" data-filter="daniella">Daniella</button><button class="filter-chip" type="button" data-filter="emanuel">Emanuel</button><button class="filter-chip" type="button" data-filter="fabrizio">Fabrizio</button><button class="filter-chip" type="button" data-filter="anggie">Anggie</button><button class="filter-chip" type="button" data-filter="erika">Erika</button><button class="filter-chip" type="button" data-filter="rodrigo">Rodrigo</button><button class="filter-chip" type="button" data-filter="genesis">Genesis</button><button class="filter-chip" type="button" data-filter="ventas">Ventas chat</button><button class="filter-chip" type="button" data-filter="back">Back office</button>
@@ -499,7 +558,7 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
     </section>
 
     <section id="evidencia" class="reveal">
-      <div class="section-head"><div class="sec-num">08</div><div><h2>Evidencia, validación y certificado</h2><p class="sub">La certificación se sostiene en entregables simples, no en asistencia pasiva.</p></div></div>
+      <div class="section-head"><div class="sec-num">09</div><div><h2>Evidencia, validación y certificado</h2><p class="sub">La certificación se sostiene en entregables simples, no en asistencia pasiva.</p></div></div>
       <div class="table-wrap"><table><thead><tr><th>Módulo</th><th>Evidencia</th><th>Preguntas de validación</th><th>Skill demostrada</th><th>Criterio</th></tr></thead><tbody>
         <tr><td class="num-cell">1</td><td>One Page o mini pieza IA</td><td>¿Qué problema AEC resuelve? ¿Qué prompt usó? ¿Qué revisó?</td><td>Crear y validar</td><td>Claridad, utilidad, prompt y revisión humana.</td></tr>
         <tr><td class="num-cell">2</td><td>Checklist o matriz IA</td><td>¿Qué documento analizó? ¿Qué riesgos detectó? ¿Qué límites tiene?</td><td>Consultar y comparar</td><td>Trazabilidad, síntesis y criterio técnico.</td></tr>
@@ -509,7 +568,7 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
     </section>
 
     <section id="gestion" class="reveal">
-      <div class="section-head"><div class="sec-num">09</div><div><h2>Gestión completa del programa</h2><p class="sub">Mapa operativo para alinear marketing, ventas, instructores, hosts moderadoras, back office, comunidad, sponsors y data.</p></div></div>
+      <div class="section-head"><div class="sec-num">10</div><div><h2>Gestión completa del programa</h2><p class="sub">Mapa operativo para alinear marketing, ventas, instructores, hosts moderadoras, back office, comunidad, sponsors y data.</p></div></div>
       <div class="table-wrap"><table><thead><tr><th>Área</th><th>Objetivo</th><th>Antes</th><th>Durante</th><th>Después</th><th>Métrica</th></tr></thead><tbody>
         <tr><td>Hosts moderadoras</td><td>Conducir ritmo y storytelling</td><td>Daniella y Erika preparan guion, transiciones, preguntas y activaciones.</td><td>Moderan sala, chat, tiempos, preguntas, Kahoot, compromiso y energía.</td><td>Recap, posts de comunidad y cierre de participación.</td><td>Retención, chat, comentarios, permanencia.</td></tr>
         <tr><td>Marketing</td><td>Captar, retener y medir</td><td>Anggie + equipo preparan landing, WhatsApp, copies, piezas, UTM y calendario.</td><td>Mensajes fijados, capturas, highlights, activación de chat y grupo WhatsApp.</td><td>Replay, highlights, secuencia de retención, métricas y leads.</td><td>+1000 inscritos, CTR, asistencia, retención.</td></tr>
@@ -524,7 +583,7 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
     </section>
 
     <section id="checklist" class="reveal">
-      <div class="section-head"><div class="sec-num">10</div><div><h2>Checklist operativo</h2><p class="sub">La preparación técnica queda fuera del inicio público del programa.</p></div></div>
+      <div class="section-head"><div class="sec-num">11</div><div><h2>Checklist operativo</h2><p class="sub">La preparación técnica queda fuera del inicio público del programa.</p></div></div>
       <div class="grid g3">
         <div><h3>Antes de apertura</h3><div class="checklist"><div class="check"><span class="box"></span><span><b>Zoom listo.</b> Grabación, cohosts, admisión y pantalla.</span></div><div class="check"><span class="box"></span><span><b>Sala de espera.</b> Frases IA, Aecodito, música, QR, instrucciones y primer mensaje de chat.</span></div><div class="check"><span class="box"></span><span><b>Links verificados.</b> Landing, Skool, encuesta, Kahoot, sponsor/contacto y soporte.</span></div><div class="check"><span class="box"></span><span><b>Slides finales.</b> Summit, AECODE 3.0, investigación, módulos, evidencia y cierre.</span></div><div class="check"><span class="box"></span><span><b>Prompts base.</b> Demo, One Page, IA en juicio y backup preparados.</span></div></div></div>
         <div><h3>Durante</h3><div class="checklist"><div class="check"><span class="box"></span><span><b>Control de tiempos.</b> Cada bloque con salida clara.</span></div><div class="check"><span class="box"></span><span><b>Chat vivo.</b> Preguntas, señales y capturas.</span></div><div class="check"><span class="box"></span><span><b>Laboratorio protegido.</b> No recortar práctica ni evidencia.</span></div><div class="check"><span class="box"></span><span><b>CTA constante.</b> Skool, certificado, Sesión 2 y Summit.</span></div></div></div>
@@ -533,7 +592,7 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
     </section>
 
     <section id="metricas" class="reveal">
-      <div class="section-head"><div class="sec-num">11</div><div><h2>Métricas del programa</h2><p class="sub">Medir el reto como funnel educativo, investigación de adopción IA y motor comercial hacia AECODE Training y AI Construction Summit.</p></div></div>
+      <div class="section-head"><div class="sec-num">12</div><div><h2>Métricas del programa</h2><p class="sub">Medir el reto como funnel educativo, investigación de adopción IA y motor comercial hacia AECODE Training y AI Construction Summit.</p></div></div>
       <div class="growth-metrics">
         <div class="growth-card"><strong>+1000</strong><span>Inscritos meta para alimentar audiencia, data e investigación.</span></div>
         <div class="growth-card"><strong>+500</strong><span>Asistentes en vivo como objetivo operativo de convocatoria.</span></div>
@@ -552,7 +611,7 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
     </section>
 
     <section id="summit" class="reveal">
-      <div class="section-head"><div class="sec-num">12</div><div><h2>AI Construction Summit como cierre estratégico</h2><p class="sub">El reto prepara al participante para llegar al AI Construction Summit con lenguaje común, evidencias, preguntas maduras y oportunidades de sponsor.</p></div></div>
+      <div class="section-head"><div class="sec-num">13</div><div><h2>AI Construction Summit como cierre estratégico</h2><p class="sub">El reto prepara al participante para llegar al AI Construction Summit con lenguaje común, evidencias, preguntas maduras y oportunidades de sponsor.</p></div></div>
       <div class="grid g3">
         <article class="card"><div class="kicker">Inicio</div><h4>Por qué existe el reto</h4><p>El Summit se presenta desde el inicio como la conversación regional sobre IA aplicada a construcción.</p></article>
         <article class="card"><div class="kicker">Centro</div><h4>Sponsors y empresas</h4><p>Mostrar empresas, QR, link de contacto y CTA: sponsors, aliados y equipos corporativos que quieran estar frente al sector AEC+IA.</p></article>
