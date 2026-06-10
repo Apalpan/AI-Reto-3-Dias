@@ -16,6 +16,7 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 - 3 módulos completos con sesión, cápsulas microlearning, skills, evidencia y validación.
 - Tabs de detalle para Sesión 1, Sesión 2 y Sesión 3.
 - Dinámicas por sesión: comparativas de modelos, Kahoot, juicio IA, mito/realidad, asistentes, productividad, Antigravity, agentes y automatización.
+- Línea de conducción: Daniella y Erika como puentes de storytelling/activación entre Anggie, instructores, Rodrigo y Genesis.
 - Agenda operativa de Sesión 1 con filtros por responsable.
 - Gestión completa por marketing, ventas, instructores, host, back office, comunidad, sponsors y data.
 - Checklist operativo, métricas y cierre estratégico hacia AI Construction Summit.
