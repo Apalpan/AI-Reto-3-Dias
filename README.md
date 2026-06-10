@@ -17,6 +17,9 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 - Sección Onboarding y preguntas por cápsula con formatos ABCD, V/F, escribir y utilidad de cada pregunta.
 - 3 módulos completos con sesión, cápsulas, skills, evidencia y validación.
 - Tabs de detalle para Sesión 1, Sesión 2 y Sesión 3 con secuencia completa de 9 cápsulas y 9 puentes por sesión.
+- Command Center premium de sesiones con métricas visuales: 3 sesiones, 27 cápsulas, 27 puentes, 27 tarjetas guía PPT y 3 evidencias certificables.
+- Gráficas interactivas por sesión para abrir directamente Fundamentos, Asistentes o Agentes.
+- Ruta visual de aprendizaje y certificación: onboarding, crear, consultar, automatizar, certificar y AI Construction Summit.
 - Puentes y dinámicas por sesión: activaciones, comparativas de modelos, Kahoot, juicio IA, mito/realidad, asistentes, productividad, Antigravity, agentes y automatización.
 - Filtros interactivos por sesión para ver todo, solo cápsulas o solo puentes.
 - Línea de conducción: Daniella y Erika como host moderadoras de storytelling/activación entre Anggie, instructores, Rodrigo y Genesis.
@@ -27,6 +30,10 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 ## Interactividad
 
 - Tabs por sesión.
+- Panel visual de completitud del programa.
+- Cards clicables por sesión.
+- Gráficas de avance por cápsulas, puentes y guía PPT.
+- Ruta visual hacia certificación y AI Construction Summit.
 - Filtros de secuencia por cápsulas y puentes.
 - Tabs por investigación.
 - Tabs de onboarding y evaluación por cápsula.

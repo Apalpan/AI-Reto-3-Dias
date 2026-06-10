@@ -112,6 +112,60 @@ p{margin:0 0 14px;max-width:900px}
 .q-type{display:inline-flex;align-items:center;justify-content:center;height:28px;border-radius:999px;background:var(--paper3);border:1px solid var(--line);font-size:11px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.06em}.q-card h4{margin:0 0 6px;font-size:14px}.q-card p{font-size:12.5px;color:var(--muted);margin:0}.q-card .answer{border-left:3px solid var(--green);padding-left:10px;font-size:12.5px;color:var(--muted);font-weight:650}.q-card .answer b{display:block;color:var(--navy);font-size:12px;margin-bottom:3px}
 .session-sequence{display:grid;gap:14px;margin-top:18px}.seq-item{position:relative;display:grid;grid-template-columns:124px minmax(0,1fr);gap:16px;border:1px solid var(--line);border-radius:22px;padding:16px;background:#fff;box-shadow:0 14px 42px rgba(24,39,75,.065);overflow:hidden}.seq-item:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--blue),var(--green));opacity:.9}.seq-item.bridge{background:linear-gradient(135deg,#fffaf0,#ffffff 62%,#f4fbff);border-color:rgba(247,183,49,.38)}.seq-item.bridge:before{background:linear-gradient(90deg,#f7b731,#ffd76a,#47cf78)}.seq-badge{display:grid;place-items:center;align-self:start;min-height:72px;border-radius:18px;background:var(--paper3);border:1px solid var(--line);color:var(--blue);font-size:11px;font-weight:950;letter-spacing:.09em;text-transform:uppercase;text-align:center;padding:10px}.seq-item.bridge .seq-badge{background:#fff4c9;color:#815a00;border-color:rgba(247,183,49,.34)}.seq-content h4{margin:0 0 8px;font-size:19px;letter-spacing:-.025em}.seq-meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 11px}.seq-meta span{display:inline-flex;align-items:center;min-height:24px;border:1px solid var(--line2);border-radius:999px;padding:4px 9px;background:#fff;font-size:11px;font-weight:850;color:var(--muted)}.seq-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:12px}.seq-box{border:1px solid var(--line2);border-radius:16px;background:rgba(255,255,255,.72);padding:12px}.seq-box b{display:block;font-size:12px;color:var(--navy);margin-bottom:6px}.seq-box p,.seq-box li{font-size:12.6px;color:var(--muted);font-weight:650;line-height:1.55}.seq-box ul{margin:0;padding-left:18px}.seq-output{margin-top:10px;border-left:3px solid var(--green);padding-left:10px;color:var(--muted);font-size:12.8px;font-weight:700}.seq-output b{color:var(--navy)}
 .sequence-controls{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--line);background:linear-gradient(135deg,#fff,#f6f9ff);border-radius:20px;padding:12px 14px;margin:16px 0 4px;box-shadow:0 12px 34px rgba(24,39,75,.055)}.seq-stats{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12px;font-weight:800}.seq-stats strong{display:inline-grid;place-items:center;min-width:38px;height:30px;border-radius:11px;background:var(--navy);color:#fff;font-size:14px}.seq-switch{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.seq-filter{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;font-size:11.5px;font-weight:900;color:var(--muted);cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}.seq-filter:hover{border-color:rgba(49,87,255,.36);transform:translateY(-1px)}.seq-filter.active{background:var(--blue);border-color:var(--blue);color:#fff}.seq-item[hidden]{display:none}
+.premium-dashboard{position:relative;border:1px solid var(--line);border-radius:30px;background:radial-gradient(circle at 12% 0%,rgba(49,87,255,.12),transparent 36%),radial-gradient(circle at 94% 12%,rgba(71,207,120,.13),transparent 32%),linear-gradient(180deg,#fff,#f7faff);padding:20px;margin:24px 0 26px;box-shadow:0 28px 90px rgba(24,39,75,.12);overflow:hidden}
+.premium-dashboard:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 18%,rgba(255,255,255,.82) 46%,transparent 74%);transform:translateX(-130%);animation:scan 7s ease-in-out infinite;pointer-events:none}
+.premium-dashboard:after{content:"";position:absolute;left:22px;right:22px;top:0;height:3px;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--green))}
+.dashboard-top{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);gap:16px;align-items:stretch}
+.dashboard-brief,.readiness-panel,.session-visual-card,.route-panel{border:1px solid rgba(219,228,244,.92);background:rgba(255,255,255,.88);box-shadow:0 16px 46px rgba(24,39,75,.075);backdrop-filter:blur(10px)}
+.dashboard-brief{border-radius:24px;padding:18px;display:grid;gap:16px}
+.dashboard-brief h3{margin:0;font-size:24px;line-height:1.06;letter-spacing:-.035em}
+.dashboard-brief p{font-size:13.5px;color:var(--muted);font-weight:680;margin:0}
+.metric-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.metric-tile{position:relative;border:1px solid var(--line2);border-radius:18px;background:#fff;padding:13px;overflow:hidden}
+.metric-tile:after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:3px;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--green));opacity:.85}
+.metric-tile strong{display:block;font-size:25px;line-height:1;font-weight:950;letter-spacing:-.055em;color:var(--navy)}
+.metric-tile span{display:block;margin-top:5px;color:var(--muted);font-size:11.2px;font-weight:850;line-height:1.25;overflow-wrap:normal}
+.readiness-panel{border-radius:24px;padding:16px;display:grid;gap:13px}
+.readiness-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.readiness-head b{font-size:15px;letter-spacing:-.01em}
+.readiness-head span{display:block;margin-bottom:4px;font-size:11px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.1em}
+.readiness-ring{--ring:100%;--ring-color:var(--blue);position:relative;width:86px;height:86px;border-radius:50%;background:conic-gradient(var(--ring-color) var(--ring),#e8eefb 0);display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(219,228,244,.9)}
+.readiness-ring:before{content:"";position:absolute;inset:9px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1px var(--line2)}
+.readiness-ring strong{position:relative;font-size:21px;font-weight:950;color:var(--navy);letter-spacing:-.05em}
+.readiness-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.readiness-item{border:1px solid var(--line2);border-radius:15px;background:#fff;padding:10px}
+.readiness-item b{display:block;font-size:12px;color:var(--navy)}
+.readiness-item span{display:block;margin-top:3px;font-size:11.5px;font-weight:720;color:var(--muted)}
+.session-visual-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:14px}
+.session-visual-card{appearance:none;border-radius:24px;padding:16px;text-align:left;color:inherit;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.session-visual-card:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--green));opacity:.9}
+.session-visual-card:after{content:"";position:absolute;width:120px;height:120px;right:-48px;top:-54px;border-radius:50%;background:rgba(49,87,255,.09);transition:transform .35s ease,opacity .35s ease}
+.session-visual-card:hover{transform:translateY(-5px);border-color:rgba(49,87,255,.34);box-shadow:0 28px 80px rgba(24,39,75,.14)}
+.session-visual-card:hover:after{transform:scale(1.45);opacity:.65}
+.session-visual-card.active-route{border-color:rgba(49,87,255,.5);box-shadow:0 26px 74px rgba(49,87,255,.16)}
+.visual-card-top{position:relative;z-index:1;display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:13px}
+.visual-card-top span{display:inline-flex;align-items:center;border:1px solid var(--line);background:var(--paper3);border-radius:999px;padding:5px 8px;font-size:10.5px;font-weight:950;color:var(--blue);letter-spacing:.08em;text-transform:uppercase}
+.visual-card-top b{display:block;font-size:17px;line-height:1.16;letter-spacing:-.025em;max-width:250px}
+.session-score{display:grid;place-items:center;min-width:44px;height:44px;border-radius:16px;background:var(--navy);color:#fff;font-weight:950;font-size:14px;box-shadow:0 16px 36px rgba(12,15,41,.18)}
+.progress-stack{position:relative;z-index:1;display:grid;gap:9px}
+.bar-row{display:grid;grid-template-columns:92px 1fr 34px;gap:8px;align-items:center}
+.bar-row span,.bar-row em{font-style:normal;font-size:11px;font-weight:900;color:var(--muted)}
+.bar-row em{text-align:right;color:var(--navy)}
+.bar-track{height:9px;border-radius:999px;background:#e9eef9;overflow:hidden}
+.bar-fill{height:100%;width:var(--w,100%);border-radius:inherit;background:linear-gradient(90deg,var(--blue),var(--violet),var(--green));box-shadow:0 0 18px rgba(49,87,255,.22)}
+.session-focus{position:relative;z-index:1;margin-top:13px;display:flex;flex-wrap:wrap;gap:7px}
+.session-focus span{border:1px solid var(--line2);border-radius:999px;background:#fff;padding:5px 8px;font-size:10.5px;font-weight:850;color:var(--muted)}
+.route-panel{position:relative;z-index:1;border-radius:24px;padding:16px;margin-top:14px;overflow:hidden}
+.route-panel h3{margin:0 0 12px;font-size:18px;letter-spacing:-.02em}
+.summit-route{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;align-items:stretch}
+.route-node{position:relative;border:1px solid var(--line2);border-radius:17px;background:#fff;padding:12px;min-height:92px}
+.route-node:not(:last-child):after{content:"";position:absolute;right:-9px;top:38px;width:10px;height:2px;background:linear-gradient(90deg,var(--blue),var(--green));z-index:2}
+.route-node small{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:10px;background:var(--paper3);color:var(--blue);font-size:10px;font-weight:950;margin-bottom:8px}
+.route-node b{display:block;font-size:12.5px;line-height:1.2;color:var(--navy)}
+.route-node span{display:block;margin-top:5px;font-size:11.3px;font-weight:680;color:var(--muted);line-height:1.35}
+.route-node.summit{background:linear-gradient(135deg,var(--navy),#173073);border-color:transparent;color:#fff}
+.route-node.summit small{background:rgba(255,255,255,.13);color:#fff;border:1px solid rgba(255,255,255,.22)}
+.route-node.summit b,.route-node.summit span{color:#fff}
 .ppt-guide{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,#fff,#f9fbff);box-shadow:0 14px 40px rgba(24,39,75,.065);margin:14px 0 8px;overflow:hidden}.ppt-guide summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 16px;font-size:13px;font-weight:950;color:var(--navy);list-style:none}.ppt-guide summary::-webkit-details-marker{display:none}.ppt-guide summary span{font-size:11px;font-weight:900;color:var(--blue);letter-spacing:.08em;text-transform:uppercase}.ppt-guide summary:after{content:"+";display:grid;place-items:center;width:28px;height:28px;border-radius:999px;background:var(--paper3);color:var(--blue);font-size:17px}.ppt-guide[open] summary:after{content:"-"}.ppt-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:0 16px 16px}.ppt-card{border:1px solid var(--line2);border-radius:16px;background:#fff;padding:12px;min-height:100%}.ppt-card b{display:block;font-size:12.5px;color:var(--navy);margin-bottom:6px}.ppt-card p{font-size:12px;line-height:1.5;color:var(--muted);font-weight:650;margin:0}.ppt-card em{font-style:normal;color:var(--blue);font-weight:900}
 .growth-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}
 .growth-card{border:1px solid var(--line);border-radius:22px;background:#fff;padding:18px;box-shadow:0 12px 38px rgba(24,39,75,.07);position:relative;overflow:hidden}
@@ -169,9 +223,9 @@ td{padding:12px 14px;border-bottom:1px solid var(--line2);vertical-align:top}tr:
 @keyframes scan{0%,45%{transform:translateX(-130%)}70%,100%{transform:translateX(130%)}}@keyframes rail{0%,100%{transform:translateX(-18%)}50%{transform:translateX(18%)}}@keyframes reveal-soft{from{opacity:.35;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
 @supports (animation-timeline:view()){.card,.map-step,.block-panel,.callout{animation:reveal-soft linear both;animation-timeline:view();animation-range:entry 0% cover 24%}}
 footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--muted);font-size:12px}.foot{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media(max-width:1120px){.hero-grid{grid-template-columns:1fr}.control-card{max-width:760px}.meta-strip{grid-template-columns:repeat(3,1fr)}.process-map{grid-template-columns:repeat(2,1fr)}.agenda-console{grid-template-columns:1fr}.stage-board{position:relative;top:auto}.block-grid{grid-template-columns:1fr}.bridge-grid,.source-grid,.growth-metrics,.q-card,.seq-item,.seq-grid,.ppt-grid{grid-template-columns:1fr}.sequence-controls{align-items:flex-start;flex-direction:column}.seq-switch{justify-content:flex-start}}
-@media(max-width:880px){.shell{grid-template-columns:1fr;padding:0 20px}.toc{display:none}main{padding:0}.hero-wrap{padding:32px 20px 34px}.topbar{align-items:flex-start;margin-bottom:34px}.brand{flex-direction:column;align-items:flex-start;gap:6px}.meta-strip{grid-template-columns:1fr 1fr}.command-grid,.g2,.g3,.g4,.process-map{grid-template-columns:1fr}.host-rail{grid-template-columns:1fr;gap:4px}.host-rail small{text-align:left}.runway{margin-left:-20px;margin-right:-20px;padding-left:20px}.block{grid-template-columns:46px 1fr;gap:12px}.block-time{width:42px;height:42px;border-radius:14px;font-size:9px}.flowline:before{left:20px}}
-@media(max-width:560px){.hero-wrap{width:100%;padding-left:20px;padding-right:20px;overflow:hidden}h1{font-size:34px;line-height:1.08;letter-spacing:-.04em;max-width:100%;overflow-wrap:break-word}.logo-img{width:180px}.hero-actions{display:grid;grid-template-columns:1fr}.pill-link{width:100%}.meta-strip{grid-template-columns:1fr}.stamp{display:none}.signal{grid-template-columns:1fr}.signal .tag{justify-self:start}.toolbar{right:14px;bottom:14px}.toast{left:14px;right:14px;transform:translateY(18px);text-align:center}.toast.show{transform:translateY(0)}table{min-width:680px}}
+@media(max-width:1120px){.hero-grid{grid-template-columns:1fr}.control-card{max-width:760px}.meta-strip{grid-template-columns:repeat(3,1fr)}.process-map{grid-template-columns:repeat(2,1fr)}.dashboard-top{grid-template-columns:1fr}.session-visual-grid{grid-template-columns:1fr}.metric-strip{grid-template-columns:repeat(3,minmax(0,1fr))}.summit-route{grid-template-columns:repeat(3,minmax(0,1fr))}.route-node:not(:last-child):after{display:none}.agenda-console{grid-template-columns:1fr}.stage-board{position:relative;top:auto}.block-grid{grid-template-columns:1fr}.bridge-grid,.source-grid,.growth-metrics,.q-card,.seq-item,.seq-grid,.ppt-grid{grid-template-columns:1fr}.sequence-controls{align-items:flex-start;flex-direction:column}.seq-switch{justify-content:flex-start}}
+@media(max-width:880px){.shell{grid-template-columns:1fr;padding:0 20px}.toc{display:none}main{padding:0}.hero-wrap{padding:32px 20px 34px}.topbar{align-items:flex-start;margin-bottom:34px}.brand{flex-direction:column;align-items:flex-start;gap:6px}.meta-strip{grid-template-columns:1fr 1fr}.command-grid,.g2,.g3,.g4,.process-map,.summit-route{grid-template-columns:1fr}.metric-strip{grid-template-columns:1fr 1fr}.premium-dashboard{border-radius:24px;padding:14px}.visual-card-top{flex-direction:column}.session-score{align-self:flex-start}.host-rail{grid-template-columns:1fr;gap:4px}.host-rail small{text-align:left}.runway{margin-left:-20px;margin-right:-20px;padding-left:20px}.block{grid-template-columns:46px 1fr;gap:12px}.block-time{width:42px;height:42px;border-radius:14px;font-size:9px}.flowline:before{left:20px}}
+@media(max-width:560px){.hero-wrap{width:100%;padding-left:20px;padding-right:20px;overflow:hidden}h1{font-size:34px;line-height:1.08;letter-spacing:-.04em;max-width:100%;overflow-wrap:break-word}.logo-img{width:180px}.hero-actions{display:grid;grid-template-columns:1fr}.pill-link{width:100%}.meta-strip,.metric-strip,.readiness-grid{grid-template-columns:1fr}.readiness-head{flex-direction:column}.bar-row{grid-template-columns:78px 1fr 30px}.stamp{display:none}.signal{grid-template-columns:1fr}.signal .tag{justify-self:start}.toolbar{right:14px;bottom:14px}.toast{left:14px;right:14px;transform:translateY(18px);text-align:center}.toast.show{transform:translateY(0)}table{min-width:680px}}
 @media print{#progress,.toc,.toolbar,.agenda-console,.toast{display:none}.shell{display:block;padding:0 18px}main{padding:0}.hero{break-after:page}section{break-inside:avoid}.tab-panel{display:block}.reveal{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
@@ -431,6 +485,76 @@ footer{max-width:var(--maxw);margin:0 auto;padding:34px 32px 58px;color:var(--mu
 
     <section id="sesiones" class="reveal">
       <div class="section-head"><div class="sec-num">06</div><div><h2>Detalle por sesión</h2><p class="sub">Las tres sesiones se mantienen en vivo a las 7:30 p.m. Daniella y Erika son host moderadoras en todas: abren, activan, conectan, controlan tiempos y sostienen el storytelling.</p></div></div>
+      <div class="premium-dashboard" aria-label="Panel premium de completitud e interacción del programa">
+        <div class="dashboard-top">
+          <div class="dashboard-brief">
+            <div>
+              <div class="kicker">Command Center de Sesiones</div>
+              <h3>Programa lleno, balanceado y listo para guiar PPT, conducción y operación.</h3>
+              <p>El reto queda diseñado como sistema de aprendizaje verificable: cada sesión tiene 9 cápsulas formales, 9 puentes de activación, guía PPT, evidencia y conexión al AI Construction Summit.</p>
+            </div>
+            <div class="metric-strip" aria-label="Métricas de completitud">
+              <div class="metric-tile"><strong>3</strong><span>sesiones</span></div>
+              <div class="metric-tile"><strong>27</strong><span>cápsulas</span></div>
+              <div class="metric-tile"><strong>27</strong><span>puentes</span></div>
+              <div class="metric-tile"><strong>27</strong><span>tarjetas PPT</span></div>
+              <div class="metric-tile"><strong>3</strong><span>evidencias</span></div>
+            </div>
+          </div>
+          <aside class="readiness-panel" aria-label="Estado de preparación del programa">
+            <div class="readiness-head">
+              <div><span>Readiness</span><b>Completitud operativa</b><p>Contenido, activación, evidencia y continuidad cubiertos para las 3 sesiones.</p></div>
+              <div class="readiness-ring" style="--ring:100%;--ring-color:var(--green)"><strong>100%</strong></div>
+            </div>
+            <div class="readiness-grid">
+              <div class="readiness-item"><b>Contenido</b><span>9 cápsulas por sesión.</span></div>
+              <div class="readiness-item"><b>Activación</b><span>9 puentes por sesión.</span></div>
+              <div class="readiness-item"><b>Entrega</b><span>1 evidencia por módulo.</span></div>
+              <div class="readiness-item"><b>Conversión</b><span>Summit al inicio, centro y final.</span></div>
+            </div>
+          </aside>
+        </div>
+        <div class="session-visual-grid" aria-label="Gráficas clicables por sesión">
+          <button class="session-visual-card" type="button" data-open-session="tab-sesion-1" data-open-label="Sesión 1 · Fundamentos">
+            <div class="visual-card-top"><div><span>Sesión 1</span><b>Fundamentos de IA + creación con IA</b></div><div class="session-score">9/9</div></div>
+            <div class="progress-stack">
+              <div class="bar-row"><span>Cápsulas</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><em>9</em></div>
+              <div class="bar-row"><span>Puentes</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><em>9</em></div>
+              <div class="bar-row"><span>Guía PPT</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><em>9</em></div>
+            </div>
+            <div class="session-focus"><span>One Page</span><span>Prompts</span><span>Modelos</span><span>Kahoot</span></div>
+          </button>
+          <button class="session-visual-card" type="button" data-open-session="tab-sesion-2" data-open-label="Sesión 2 · Asistentes">
+            <div class="visual-card-top"><div><span>Sesión 2</span><b>Asistentes IA + productividad con documentos</b></div><div class="session-score">9/9</div></div>
+            <div class="progress-stack">
+              <div class="bar-row"><span>Cápsulas</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><em>9</em></div>
+              <div class="bar-row"><span>Puentes</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><em>9</em></div>
+              <div class="bar-row"><span>Guía PPT</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><em>9</em></div>
+            </div>
+            <div class="session-focus"><span>Actas</span><span>Documentos</span><span>Voz</span><span>BIM + IA</span></div>
+          </button>
+          <button class="session-visual-card" type="button" data-open-session="tab-sesion-3" data-open-label="Sesión 3 · Agentes">
+            <div class="visual-card-top"><div><span>Sesión 3</span><b>Agentes IA + automatización de workflows</b></div><div class="session-score">9/9</div></div>
+            <div class="progress-stack">
+              <div class="bar-row"><span>Cápsulas</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><em>9</em></div>
+              <div class="bar-row"><span>Puentes</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><em>9</em></div>
+              <div class="bar-row"><span>Guía PPT</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><em>9</em></div>
+            </div>
+            <div class="session-focus"><span>n8n</span><span>Codex</span><span>Antigravity</span><span>Workflows</span></div>
+          </button>
+        </div>
+        <div class="route-panel" aria-label="Ruta visual del programa hacia el AI Construction Summit">
+          <h3>Ruta visual de aprendizaje y certificación</h3>
+          <div class="summit-route">
+            <div class="route-node"><small>01</small><b>Onboarding</b><span>Cuenta, comunidad, reglas, encuesta y compromiso.</span></div>
+            <div class="route-node"><small>02</small><b>Crear</b><span>Fundamentos, prompts, modelos y One Page.</span></div>
+            <div class="route-node"><small>03</small><b>Consultar</b><span>Asistentes, documentos, actas y productividad.</span></div>
+            <div class="route-node"><small>04</small><b>Automatizar</b><span>Agentes, flujos, n8n, dashboards y control humano.</span></div>
+            <div class="route-node"><small>05</small><b>Certificar</b><span>Evidencia, validación, feedback y certificado.</span></div>
+            <div class="route-node summit"><small>06</small><b>AI Construction Summit</b><span>Casos, comunidad, sponsors y siguiente nivel.</span></div>
+          </div>
+        </div>
+      </div>
       <div class="tabs" role="tablist" aria-label="Sesiones">
         <button class="tab active" type="button" data-tab-group="sessions" data-tab-target="tab-sesion-1">Sesión 1 · Fundamentos</button>
         <button class="tab" type="button" data-tab-group="sessions" data-tab-target="tab-sesion-2">Sesión 2 · Asistentes</button>
@@ -835,7 +959,7 @@ function onScroll(){
   navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+current));
 }
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target)}})},{threshold:.12});
+const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target)}})},{threshold:.01,rootMargin:'0px 0px -8% 0px'});
 reveals.forEach(el=>io.observe(el));
 document.querySelectorAll('[data-tab-target]').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -844,6 +968,16 @@ document.querySelectorAll('[data-tab-target]').forEach(btn=>{
     document.querySelectorAll(`[data-tab-panel-group="${group}"]`).forEach(panel=>panel.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById(btn.dataset.tabTarget)?.classList.add('active');
+  });
+});
+document.querySelectorAll('[data-open-session]').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const target=card.dataset.openSession;
+    const tab=document.querySelector(`[data-tab-target="${target}"]`);
+    if(tab) tab.click();
+    document.querySelectorAll('[data-open-session]').forEach(item=>item.classList.toggle('active-route',item===card));
+    document.getElementById('sesiones')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    showToast(`${card.dataset.openLabel||'Sesión'} activada`);
   });
 });
 document.querySelectorAll('[data-seq-filter]').forEach(btn=>{
@@ -910,7 +1044,7 @@ document.querySelectorAll('[data-copy-target]').forEach(btn=>{
     try{await navigator.clipboard.writeText(text);showToast('Prompt copiado')}catch{showToast('Selecciona y copia el prompt manualmente')}
   });
 });
-document.querySelectorAll('.command-tile,.pill-link,.filter-chip,.seq-filter,.toolbtn,.copy-btn').forEach(item=>{
+document.querySelectorAll('.command-tile,.pill-link,.filter-chip,.seq-filter,.toolbtn,.copy-btn,.session-visual-card').forEach(item=>{
   item.addEventListener('pointermove',event=>{
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     const rect=item.getBoundingClientRect();
