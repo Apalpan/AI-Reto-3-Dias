@@ -16,8 +16,9 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 - Sección AECODE Investigación con resumen, 8 dimensiones, preguntas clave y uso en vivo.
 - Sección Onboarding y preguntas por cápsula con formatos ABCD, V/F, escribir y utilidad de cada pregunta.
 - 3 módulos completos con sesión, cápsulas, skills, evidencia y validación.
-- Tabs de detalle para Sesión 1, Sesión 2 y Sesión 3.
+- Tabs de detalle para Sesión 1, Sesión 2 y Sesión 3 con secuencia completa de 8 cápsulas y 9 puentes por sesión.
 - Puentes y dinámicas por sesión: activaciones, comparativas de modelos, Kahoot, juicio IA, mito/realidad, asistentes, productividad, Antigravity, agentes y automatización.
+- Filtros interactivos por sesión para ver todo, solo cápsulas o solo puentes.
 - Línea de conducción: Daniella y Erika como host moderadoras de storytelling/activación entre Anggie, instructores, Rodrigo y Genesis.
 - Agenda operativa de Sesión 1 con filtros por responsable.
 - Gestión completa por marketing, difusión, ventas, ventas chat, instructores, host moderadoras, back office, comunidad, sponsors y data.
@@ -26,6 +27,7 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 ## Interactividad
 
 - Tabs por sesión.
+- Filtros de secuencia por cápsulas y puentes.
 - Tabs por investigación.
 - Tabs de onboarding y evaluación por cápsula.
 - Filtros por responsable.
