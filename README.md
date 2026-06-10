@@ -15,6 +15,7 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 - Mapa visual del proceso: onboarding, 3 módulos, evidencias, certificación y Summit.
 - 3 módulos completos con sesión, cápsulas microlearning, skills, evidencia y validación.
 - Tabs de detalle para Sesión 1, Sesión 2 y Sesión 3.
+- Dinámicas por sesión: comparativas de modelos, Kahoot, juicio IA, mito/realidad, asistentes, productividad, Antigravity, agentes y automatización.
 - Agenda operativa de Sesión 1 con filtros por responsable.
 - Gestión completa por marketing, ventas, instructores, host, back office, comunidad, sponsors y data.
 - Checklist operativo, métricas y cierre estratégico hacia AI Construction Summit.
@@ -25,6 +26,7 @@ Micrositio estático para presentar y operar el programa principal **Reto IA 3 D
 - Filtros por responsable.
 - Panel operativo del bloque seleccionado.
 - Botón para copiar prompt base.
+- Dinámicas accionables para activar comentarios, votaciones, laboratorio, debate y entregas.
 - Barra de progreso.
 - Scroll reveal y microinteracciones.
 - Botón PDF/imprimir.
